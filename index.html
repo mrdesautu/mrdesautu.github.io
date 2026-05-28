@@ -37,6 +37,12 @@ body.hov #cr{width:54px;height:54px;border-color:rgba(245,158,11,.4)}
 /* ── Scroll bar ── */
 #sb{position:fixed;top:0;left:0;right:0;height:2px;z-index:9000;background:linear-gradient(90deg,var(--c),var(--t),var(--p));transform-origin:left;transform:scaleX(0);transition:transform .04s linear}
 
+/* ── Lang toggle ── */
+.lang-toggle{display:flex;align-items:center;gap:3px;background:rgba(255,255,255,.04);border:1px solid var(--b);border-radius:20px;padding:4px;margin-right:6px}
+.lang-opt{font-size:11px;font-weight:700;letter-spacing:.5px;padding:4px 10px;border-radius:14px;color:var(--dm);cursor:none;transition:all .2s;user-select:none}
+.lang-opt.active{background:var(--c);color:#060D1A}
+.lang-opt:hover:not(.active){color:var(--mu);background:rgba(255,255,255,.05)}
+
 /* ── Nav ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 56px;display:flex;align-items:center;justify-content:space-between;height:62px;transition:all .4s ease}
 nav.sc{background:rgba(6,13,26,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--b)}
@@ -245,6 +251,10 @@ footer{background:var(--bg);border-top:1px solid var(--b);padding:60px 56px;text
     <a href="#projects">Projects</a>
     <a href="#education">Background</a>
   </div>
+  <div class="lang-toggle" id="lang-toggle">
+    <span class="lang-opt active" data-lang="en">EN</span>
+    <span class="lang-opt" data-lang="es">ES</span>
+  </div>
   <button class="hb" id="hb" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob-menu" id="mob-menu">
@@ -258,7 +268,7 @@ footer{background:var(--bg);border-top:1px solid var(--b);padding:60px 56px;text
 <section class="hero">
   <canvas id="neural"></canvas>
   <div class="hi">
-    <div class="badge"><div class="bd"></div>Available for senior / lead AI roles</div>
+    <div class="badge"><div class="bd"></div><span id="badge-txt">Available for senior / lead AI roles</span></div>
     <div class="hn">
       <span data-text="Martin">Martin</span>
       <span>Rodrigo Morales</span>
@@ -274,9 +284,9 @@ footer{background:var(--bg);border-top:1px solid var(--b);padding:60px 56px;text
       <div class="ss"></div>
       <div class="st"><span class="sn" data-target="3">0</span><div class="sl">Live Projects</div></div>
     </div>
-    <a class="cv-btn" href="Martin_Morales_CV_2025.pdf" download>
+    <a class="cv-btn" id="cv-btn" href="Martin_Morales_CV_2026.pdf" download>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Download CV
+      <span id="cvbtn-txt">Download CV</span>
     </a>
   </div>
   <div class="sh"><span>Scroll</span><div class="sa"></div></div>
@@ -492,7 +502,7 @@ footer{background:var(--bg);border-top:1px solid var(--b);padding:60px 56px;text
     <a class="fla" href="mailto:mrdesautu@gmail.com">✉ Email</a>
     <a class="fla" href="https://github.com/mrdesautu" target="_blank" rel="noopener">GitHub</a>
     <a class="fla" href="https://www.linkedin.com/in/mrdesautu" target="_blank" rel="noopener">LinkedIn</a>
-    <a class="fla" href="Martin_Morales_CV_2025.pdf">&#128196; PDF Version</a>
+    <a class="fla" id="footer-pdf" href="Martin_Morales_CV_2026.pdf"><span id="footer-pdf-txt">&#128196; PDF Version</span></a>
   </div>
   <div style="margin-top:32px;font-size:11px;color:var(--dm)">+34 644 875 110 · Spain</div>
 </footer>
@@ -635,17 +645,18 @@ window.addEventListener('resize',()=>{resize();init()});
 })();
 
 /* ── Typing effect ── */
-const roles=['MLOps & AI Engineer  |  AI Systems Architect','AI Technical Lead @ Iatel','Co-founder @ Dualtherapist','Professor — Clinical AI & NLP'];
-let ri=0,ci=0,dl=false;
+let rolesArr=['MLOps & AI Engineer  |  AI Systems Architect','AI Technical Lead @ Iatel','Co-founder @ Dualtherapist','Professor — Clinical AI & NLP'];
+let ri=0,ci=0,dl=false,typeTimer=null;
 const tp=document.getElementById('typed');
 function type(){
-  const cur=roles[ri];
+  const cur=rolesArr[ri];
   tp.textContent=dl?cur.slice(0,--ci):cur.slice(0,++ci);
-  if(!dl&&ci===cur.length){dl=true;setTimeout(type,2200);return}
-  if(dl&&ci===0){dl=false;ri=(ri+1)%roles.length}
-  setTimeout(type,dl?36:58);
+  if(!dl&&ci===cur.length){dl=true;typeTimer=setTimeout(type,2200);return}
+  if(dl&&ci===0){dl=false;ri=(ri+1)%rolesArr.length}
+  typeTimer=setTimeout(type,dl?36:58);
 }
-setTimeout(type,900);
+function restartTyping(newRoles){clearTimeout(typeTimer);rolesArr=[...newRoles];ri=0;ci=0;dl=false;tp.textContent='';typeTimer=setTimeout(type,400);}
+typeTimer=setTimeout(type,900);
 
 /* ── Counter animation ── */
 function animCount(el,target){
@@ -690,6 +701,151 @@ if(lgsEl)lio.observe(lgsEl);
 const hbBtn=document.getElementById('hb'),mobMenu=document.getElementById('mob-menu');
 function closeMob(){hbBtn.classList.remove('open');mobMenu.classList.remove('open')}
 hbBtn.addEventListener('click',()=>{hbBtn.classList.toggle('open');mobMenu.classList.toggle('open')});
+
+/* ── i18n ── */
+const LANGS={
+  en:{
+    nav:['About','Experience','Projects','Background'],
+    badge:'Available for senior / lead AI roles',
+    ht:'MSc Artificial Intelligence  ·  Lic. en Psicología  ·  B.Sc. Systems Engineering',
+    stats:['Years Exp.','Mentored','Team Led','Live Projects'],
+    download:'Download CV', scroll:'Scroll',
+    sl:['About','Languages','Career','Work','Background'],
+    st:['Building AI systems that <em>matter</em>','Professional <em>Experience</em>','Selected <em>Projects</em>','Education &amp; <em>Expertise</em>'],
+    about_ps:[
+      'AI Technical Lead &amp; MLOps Engineer with <strong>5+ years</strong> building production-grade LLM and agentic systems. Leading a multi-agent platform for telecom diagnostics at <strong>Iatel</strong>, and co-founding <strong>Dualtherapist</strong> — approaching production launch with a 4-person team.',
+      'Uniquely positioned at the intersection of <strong>Systems Engineering</strong> and <strong>Clinical Psychology</strong>. This dual background enables precision HITL evaluation and AI safety design for therapeutic applications that most engineers simply cannot offer.',
+      'Proven at Fortune 500 scale (Accenture, BBVA/HP). Focused on <strong>AI product leadership</strong> and <strong>agentic systems architecture</strong>.'
+    ],
+    skill_groups:['LLM &amp; Agents','MLOps &amp; Infra','Cloud &amp; Data','Dev Stack'],
+    jobs:[
+      {title:'AI Technical Lead',period:'Apr 2026 – Present',company:'Iatel — Telecommunications / Enterprise AI · Spain',bullets:['Leading a 4-person team building a multi-agent AI system for automated root cause detection of network failures across major enterprise telecom infrastructures in Spain.','Designing end-to-end cloud architecture integrating AI components, agent orchestration, and real-time data pipelines for complex network environments.','Overseeing technical decisions, sprint planning, and delivery of a production-grade agentic platform combining LLM reasoning with structured network diagnostics.']},
+      {title:'Independent AI Consultant &amp; Professor',period:'2025 – Present',company:'Northern International University / Self-employed',bullets:['Appointed professor delivering modules on AI-Assisted Psychometrics, Computational Psychopathology, and Conversational Therapeutic Systems.','Built scalable RAG pipelines for health and education sectors integrating HuggingFace LLMs with Qdrant/ChromaDB vector stores.','Mentored 20+ students through full NLP project lifecycle: architecture, FastAPI deployment, and production best practices.']},
+      {title:'AI Engineer',period:'2024 – 2025',company:'Accenture — Client: HP (Fortune 500)',bullets:['Designed and deployed RAG-based candidate evaluation systems, significantly improving automation and assessment precision.','Led MLOps strategy for HP supply chain predictive models: PySpark pipelines, Docker + Databricks CI/CD.','Optimized Kubernetes cluster resource allocation and autoscaling, reducing cloud infrastructure costs.']},
+      {title:'Lead Data Instructor &amp; Technical Mentor',period:'2023 – 2025',company:'Henry Bootcamp',bullets:['Led 10+ cohorts as Technical Lead &amp; Scrum Master through 45-day production-simulation sprints.','Co-designed cloud-native architectures (Docker, FastAPI, MLflow) deployed by graduates to real production environments.']},
+      {title:'Big Data Engineer',period:'2023 – 2024',company:'Accenture — Client: BBVA (Banking)',bullets:['Orchestrated mission-critical ETL pipelines in a regulated banking environment using Hadoop, Spark on YARN, GCP Dataproc.','Implemented enterprise-grade Data Quality &amp; Drift monitoring with Control-M for high-availability scheduling.']},
+      {title:'Junior Data Scientist',period:'2021 – 2023',company:'CEA Solidario (NGO)',bullets:['Built AI-driven behavioral analysis tools for autism assistance, integrating early ML models for pattern recognition.']}
+    ],
+    proj_badge:'Approaching Production',
+    projects:[
+      {name:'Dualtherapist — Clinical AI Platform',bullets:['Co-founding &amp; coordinating a 4-person team (frontend, backend, PM) approaching production launch.','Multi-agent system with A2A protocols &amp; MCP performing complex temporal analysis and prosodic audio feature extraction from therapy sessions.','Expo mobile app + Firebase/Firestore real-time backend with structured reasoning agents for automated clinical evaluation.']},
+      {name:'Multi-Agent Knowledge Graph Builder',bullets:['Orchestrated autonomous agents for entity extraction and Neo4j Knowledge Graph construction from unstructured data.','Full pipeline from document ingestion to graph queries via Google ADK multi-agent orchestration.']},
+      {name:'MetaAgent — Hybrid Memory AI',bullets:['Hybrid vector memory with human feedback scoring loops and long-term context retention.','Containerized; automated memory consolidation and session persistence.']},
+      {name:'Production MLOps Pipeline',bullets:['DistilBERT at 80% accuracy with automated CI/CD for model versioning on HuggingFace Spaces.','FastAPI inference endpoints + MLflow experiment tracking + batch processing.']},
+      {name:'GenAI Advisory Systems',bullets:['Restaurant recommendation agent + investor advisory via automated SWOT analysis &amp; LLMs.','Prompt engineering, data preprocessing, and front-end deployment.']}
+    ],
+    edu_degrees:['MSc Artificial Intelligence','B.Sc. Systems Engineering','Lic. en Psicología'],
+    edu_insts:['AI &amp; Knowledge Engineering — Universidad Tecnológica Nacional','Universidad Tecnológica Nacional','Universidad de Mendoza — 2017'],
+    edu_badges:['AI &amp; ML','Engineering','&#127941; Gold Medal Graduate'],
+    award_label:'&#127941; Academic Excellence',award_title:'Gold Medal — Best Graduate',award_inst:'Universidad de Mendoza, 2017 · Licenciatura en Psicología',
+    clinical_label:'Clinical Domain Expertise',
+    clinical_text:'Licensed Psychologist with 5+ years clinical experience. Applies diagnostic precision to LLM evaluation (HITL), hallucination detection, and AI safety design for mental health and therapeutic applications. Researcher in Structural Psychoanalysis (APOLA) — presenter at international forums on the intersection of topology, language formalization, and Knowledge Graph representation.',
+    footer_tagline:'AI Technical Lead · MLOps Engineer · Spain',
+    footer_pdf:'&#128196; PDF Version',
+    pdf_en:'Martin_Morales_CV_2026.pdf',
+    roles:['MLOps & AI Engineer  |  AI Systems Architect','AI Technical Lead @ Iatel','Co-founder @ Dualtherapist','Professor — Clinical AI & NLP']
+  },
+  es:{
+    nav:['Sobre mí','Experiencia','Proyectos','Formación'],
+    badge:'Disponible para roles senior / lead en IA',
+    ht:'MSc Inteligencia Artificial  ·  Lic. en Psicología  ·  Ing. en Sistemas',
+    stats:['Años Exp.','Mentoreados','Equipo liderado','Proyectos activos'],
+    download:'Descargar CV', scroll:'Deslizá',
+    sl:['Sobre mí','Idiomas','Carrera','Trabajo','Formación'],
+    st:['Construyendo sistemas de IA que <em>importan</em>','<em>Experiencia</em> Profesional','Proyectos <em>Seleccionados</em>','Educación y <em>Expertise</em>'],
+    about_ps:[
+      'Technical Lead de IA &amp; Ingeniero MLOps con <strong>más de 5 años</strong> construyendo sistemas LLM y agénticos en producción. Liderando una plataforma multiagente para diagnóstico en telecomunicaciones en <strong>Iatel</strong>, y cofundando <strong>Dualtherapist</strong> — próximo al lanzamiento con un equipo de 4 personas.',
+      'Posicionado de forma única en la intersección de <strong>Ingeniería en Sistemas</strong> y <strong>Psicología Clínica</strong>. Esta doble formación permite evaluación HITL de precisión y diseño de seguridad en IA para aplicaciones terapéuticas que la mayoría de los ingenieros no pueden ofrecer.',
+      'Probado a escala Fortune 500 (Accenture, BBVA/HP). Enfocado en <strong>liderazgo de productos de IA</strong> y <strong>arquitectura de sistemas agénticos</strong>.'
+    ],
+    skill_groups:['LLM &amp; Agentes','MLOps e Infra','Cloud y Datos','Stack de desarrollo'],
+    jobs:[
+      {title:'Technical Lead de IA',period:'Abr 2026 – Presente',company:'Iatel — Telecomunicaciones / IA Empresarial · España',bullets:['Liderando un equipo de 4 personas construyendo un sistema de IA multiagente para la detección automatizada de causa raíz de fallas de red en grandes infraestructuras de telecomunicaciones empresariales en España.','Diseñando arquitectura cloud de extremo a extremo integrando componentes de IA, orquestación de agentes y pipelines de datos en tiempo real para entornos de red complejos.','Supervisando decisiones técnicas, planificación de sprints y entrega de una plataforma agéntica de nivel productivo que combina razonamiento LLM con diagnósticos de red estructurados.']},
+      {title:'Consultor Independiente de IA &amp; Profesor',period:'2025 – Presente',company:'Northern International University / Independiente',bullets:['Designado profesor dictando módulos sobre Psicometría Asistida por IA, Psicopatología Computacional y Sistemas Terapéuticos Conversacionales.','Construí pipelines RAG escalables para los sectores de salud y educación integrando LLMs de HuggingFace con almacenes vectoriales Qdrant/ChromaDB.','Mentoré a más de 20 estudiantes a lo largo del ciclo de vida completo de proyectos NLP: arquitectura, despliegue con FastAPI y mejores prácticas de producción.']},
+      {title:'Ingeniero de IA',period:'2024 – 2025',company:'Accenture — Cliente: HP (Fortune 500)',bullets:['Diseñé y desplegué sistemas de evaluación de candidatos basados en RAG, mejorando significativamente la automatización y la precisión de las evaluaciones.','Lideré la estrategia MLOps para modelos predictivos de la cadena de suministro de HP: pipelines PySpark, Docker + CI/CD en Databricks.','Optimicé la asignación de recursos y el autoescalado del clúster Kubernetes, reduciendo los costos de infraestructura cloud.']},
+      {title:'Instructor Principal de Datos &amp; Mentor Técnico',period:'2023 – 2025',company:'Henry Bootcamp',bullets:['Lideré más de 10 cohortes como Technical Lead &amp; Scrum Master en sprints de simulación productiva de 45 días.','Co-diseñé arquitecturas cloud-native (Docker, FastAPI, MLflow) desplegadas por graduados en entornos productivos reales.']},
+      {title:'Ingeniero de Big Data',period:'2023 – 2024',company:'Accenture — Cliente: BBVA (Banca)',bullets:['Orquesté pipelines ETL de misión crítica en un entorno bancario regulado usando Hadoop, Spark on YARN, GCP Dataproc.','Implementé monitoreo de Calidad de Datos y Drift de nivel empresarial con Control-M para planificación de alta disponibilidad.']},
+      {title:'Científico de Datos Junior',period:'2021 – 2023',company:'CEA Solidario (ONG)',bullets:['Construí herramientas de análisis conductual impulsadas por IA para asistencia en autismo, integrando modelos ML para reconocimiento de patrones.']}
+    ],
+    proj_badge:'Próximo al lanzamiento',
+    projects:[
+      {name:'Dualtherapist — Plataforma de IA Clínica',bullets:['Cofundando y coordinando un equipo de 4 personas (frontend, backend, PM) próximo al lanzamiento productivo.','Sistema multiagente con protocolos A2A &amp; MCP realizando análisis temporal complejo y extracción de características prosódicas de audio de sesiones terapéuticas.','App móvil Expo + backend en tiempo real Firebase/Firestore con agentes de razonamiento estructurado para evaluación clínica automatizada.']},
+      {name:'Constructor de Knowledge Graph Multiagente',bullets:['Agentes autónomos orquestados para extracción de entidades y construcción de Knowledge Graph en Neo4j desde datos no estructurados.','Pipeline completo desde ingesta de documentos hasta consultas de grafos mediante orquestación multiagente con Google ADK.']},
+      {name:'MetaAgent — IA con Memoria Híbrida',bullets:['Memoria vectorial híbrida con bucles de scoring por feedback humano y retención de contexto a largo plazo.','Contenedorizado; consolidación automática de memoria y persistencia de sesión.']},
+      {name:'Pipeline MLOps en Producción',bullets:['DistilBERT al 80% de precisión con CI/CD automatizado para versionado de modelos en HuggingFace Spaces.','Endpoints de inferencia FastAPI + seguimiento de experimentos MLflow + procesamiento por lotes.']},
+      {name:'Sistemas de Asesoramiento GenAI',bullets:['Agente de recomendación de restaurantes + asesoría a inversores via análisis FODA automatizado &amp; LLMs.','Ingeniería de prompts, preprocesamiento de datos y despliegue frontend.']}
+    ],
+    edu_degrees:['MSc Inteligencia Artificial','Ing. en Sistemas de Información','Lic. en Psicología'],
+    edu_insts:['Ing. del Conocimiento e IA — Universidad Tecnológica Nacional','Universidad Tecnológica Nacional','Universidad de Mendoza — 2017'],
+    edu_badges:['IA &amp; ML','Ingeniería','&#127941; Mejor Egresado'],
+    award_label:'&#127941; Excelencia Académica',award_title:'Medalla de Oro — Mejor Egresado',award_inst:'Universidad de Mendoza, 2017 · Licenciatura en Psicología',
+    clinical_label:'Expertise en Dominio Clínico',
+    clinical_text:'Psicólogo habilitado con más de 5 años de experiencia clínica. Aplica precisión diagnóstica a la evaluación LLM (HITL), detección de alucinaciones y diseño de seguridad en IA para aplicaciones de salud mental y terapéuticas. Investigador en Psicoanálisis Estructural (APOLA) — presentador en foros internacionales sobre la intersección entre topología, formalización del lenguaje y representación en Knowledge Graphs.',
+    footer_tagline:'Technical Lead de IA · Ingeniero MLOps · España',
+    footer_pdf:'&#128196; Versión PDF',
+    pdf_es:'Martin_Morales_CV_2026_ES.pdf',
+    roles:['Ingeniero MLOps & IA  |  Arquitecto de Sistemas IA','Technical Lead de IA @ Iatel','Co-fundador @ Dualtherapist','Profesor — IA Clínica & NLP']
+  }
+};
+
+let currentLang='en';
+function applyLang(lang){
+  const t=LANGS[lang];
+  // Nav
+  document.querySelectorAll('.nr a').forEach((el,i)=>{if(t.nav[i])el.textContent=t.nav[i]});
+  document.querySelectorAll('.mob-menu a').forEach((el,i)=>{if(t.nav[i])el.textContent=t.nav[i]});
+  // Hero
+  document.getElementById('badge-txt').textContent=t.badge;
+  document.querySelector('.ht').innerHTML=t.ht;
+  document.querySelectorAll('.sl').forEach((el,i)=>{if(t.stats[i])el.textContent=t.stats[i]});
+  document.getElementById('cvbtn-txt').textContent=t.download;
+  const cvBtn=document.getElementById('cv-btn');
+  if(lang==='es'){cvBtn.style.opacity='.45';cvBtn.style.pointerEvents='none';cvBtn.title='Próximamente';}
+  else{cvBtn.style.opacity='';cvBtn.style.pointerEvents='';cvBtn.title='';cvBtn.href=t.pdf_en;}
+  document.querySelector('.sh > span').textContent=t.scroll;
+  // Section labels & titles
+  document.querySelectorAll('.sl2').forEach((el,i)=>{if(t.sl[i])el.textContent=t.sl[i]});
+  document.querySelectorAll('.st2').forEach((el,i)=>{if(t.st[i])el.innerHTML=t.st[i]});
+  // About
+  document.querySelectorAll('.at p').forEach((el,i)=>{if(t.about_ps[i])el.innerHTML=t.about_ps[i]});
+  document.querySelectorAll('.sg .sgl').forEach((el,i)=>{if(t.skill_groups[i])el.innerHTML=t.skill_groups[i]});
+  // Experience
+  document.querySelectorAll('.ti').forEach((ti,i)=>{
+    const j=t.jobs[i];if(!j)return;
+    const tr=ti.querySelector('.tr'),tp2=ti.querySelector('.tp2'),tco=ti.querySelector('.tco'),tb2=ti.querySelector('.tb2');
+    if(tr)tr.innerHTML=j.title;if(tp2)tp2.textContent=j.period;if(tco)tco.textContent=j.company;
+    if(tb2)tb2.innerHTML=j.bullets.map(b=>`<li>${b}</li>`).join('');
+  });
+  // Projects
+  document.querySelectorAll('.bi').forEach((bi,i)=>{
+    const p=t.projects[i];if(!p)return;
+    const pn=bi.querySelector('.pn'),pl=bi.querySelector('.pl'),pbg=bi.querySelector('.pbg');
+    if(pn)pn.textContent=p.name;if(pl)pl.innerHTML=p.bullets.map(b=>`<li>${b}</li>`).join('');
+    if(pbg)pbg.textContent=t.proj_badge;
+  });
+  // Education
+  document.querySelectorAll('.ec').forEach((ec,i)=>{
+    const ed=ec.querySelector('.ed'),ei=ec.querySelector('.ei'),eb=ec.querySelector('.eb');
+    if(ed&&t.edu_degrees[i])ed.textContent=t.edu_degrees[i];
+    if(ei&&t.edu_insts[i])ei.innerHTML=t.edu_insts[i];
+    if(eb&&t.edu_badges[i])eb.innerHTML=t.edu_badges[i];
+  });
+  const aw=document.querySelector('.aw');
+  if(aw){aw.children[0].innerHTML=t.award_label;aw.children[1].textContent=t.award_title;aw.children[2].textContent=t.award_inst;}
+  document.querySelector('.cll').textContent=t.clinical_label;
+  document.querySelector('.clt').textContent=t.clinical_text;
+  // Footer
+  document.querySelector('.fs2').textContent=t.footer_tagline;
+  document.getElementById('footer-pdf-txt').innerHTML=t.footer_pdf;
+  // Lang toggle UI
+  document.querySelectorAll('.lang-opt').forEach(o=>o.classList.toggle('active',o.dataset.lang===lang));
+  document.documentElement.lang=lang;
+  restartTyping(t.roles);
+  currentLang=lang;
+}
+document.querySelectorAll('.lang-opt').forEach(o=>{
+  o.addEventListener('click',()=>{if(o.dataset.lang!==currentLang)applyLang(o.dataset.lang);});
+});
 
 /* ── 3D card tilt ── */
 document.querySelectorAll('.bi,.tc').forEach(card=>{
