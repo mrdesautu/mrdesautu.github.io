@@ -800,7 +800,7 @@ function applyLang(lang){
   document.querySelectorAll('.sl').forEach((el,i)=>{if(t.stats[i])el.textContent=t.stats[i]});
   document.getElementById('cvbtn-txt').textContent=t.download;
   const cvBtn=document.getElementById('cv-btn');
-  if(lang==='es'){cvBtn.style.opacity='.45';cvBtn.style.pointerEvents='none';cvBtn.title='Próximamente';}
+  if(lang==='es'){cvBtn.style.opacity='';cvBtn.style.pointerEvents='';cvBtn.title='';cvBtn.href=t.pdf_es;}
   else{cvBtn.style.opacity='';cvBtn.style.pointerEvents='';cvBtn.title='';cvBtn.href=t.pdf_en;}
   document.querySelector('.sh > span').textContent=t.scroll;
   // Section labels & titles

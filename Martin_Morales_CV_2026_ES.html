@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Martin Rodrigo Morales — CV 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:1.3cm 1.6cm}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;font-size:9.2pt;color:#1e293b;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+a{color:inherit;text-decoration:none}
+
+/* Print button (screen only) */
+.print-btn{position:fixed;top:16px;right:16px;padding:9px 20px;background:#0ea5e9;color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(14,165,233,.4);z-index:100}
+.print-btn:hover{background:#0284c7}
+@media print{.print-btn{display:none}}
+
+.page{max-width:21cm;margin:0 auto;padding:1.3cm 1.6cm}
+@media print{.page{padding:0;max-width:none}}
+
+/* ── Header ── */
+.hdr{border-bottom:2.5px solid #0ea5e9;padding-bottom:13px;margin-bottom:16px}
+.hdr-name{font-size:22pt;font-weight:800;color:#0f172a;letter-spacing:-.5px;line-height:1}
+.hdr-title{font-size:10pt;font-weight:500;color:#0ea5e9;margin-top:4px;letter-spacing:.1px}
+.hdr-contact{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:9px}
+.hdr-contact span{font-size:8pt;color:#475569}
+
+/* ── Body grid ── */
+.body{display:grid;grid-template-columns:1fr 190px;gap:26px}
+
+/* ── Sections ── */
+.sec{margin-bottom:15px}
+.sec-title{font-size:7.5pt;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#0ea5e9;border-bottom:1px solid #e2e8f0;padding-bottom:3px;margin-bottom:9px}
+
+/* ── Summary ── */
+.summary{font-size:8.5pt;color:#475569;line-height:1.65}
+.summary strong{color:#1e293b;font-weight:600}
+
+/* ── Jobs ── */
+.job{margin-bottom:11px}
+.job:last-child{margin-bottom:0}
+.job-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.job-title{font-size:9.5pt;font-weight:700;color:#0f172a}
+.job-period{font-size:7pt;color:#94a3b8;font-family:'JetBrains Mono',monospace;white-space:nowrap;flex-shrink:0}
+.job-co{font-size:8pt;color:#0ea5e9;font-style:italic;margin:2px 0 5px}
+.bul{list-style:none}
+.bul li{font-size:8pt;color:#475569;padding:1.5px 0 1.5px 12px;position:relative;line-height:1.55}
+.bul li::before{content:'▸';position:absolute;left:0;color:#0d9488;font-size:7pt;top:3px}
+
+/* ── Sidebar ── */
+.sidebar .sec{margin-bottom:12px}
+
+/* Skills */
+.skill-group{margin-bottom:7px}
+.skill-label{font-size:7pt;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.7px;margin-bottom:4px}
+.tags{display:flex;flex-wrap:wrap;gap:3px}
+.tag{font-size:7pt;font-weight:500;padding:2px 7px;border-radius:4px;background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd;line-height:1.4}
+
+/* Education */
+.edu{margin-bottom:8px}
+.edu-deg{font-size:8.5pt;font-weight:700;color:#0f172a}
+.edu-inst{font-size:7.5pt;color:#475569;margin-top:1px}
+.edu-badge{display:inline-block;font-size:6.5pt;font-weight:600;padding:1px 7px;border-radius:4px;margin-top:3px;background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd}
+
+/* Award */
+.award{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:6px;padding:8px 10px}
+.award-lbl{font-size:7pt;font-weight:700;color:#b45309;text-transform:uppercase;letter-spacing:.7px}
+.award-ttl{font-size:8.5pt;font-weight:700;color:#92400e;margin-top:2px}
+.award-sub{font-size:7pt;color:#a16207;margin-top:2px}
+
+/* Languages */
+.lang{margin-bottom:6px}
+.lang-row{display:flex;justify-content:space-between;font-size:8pt;margin-bottom:2px}
+.lang-name{font-weight:600}
+.lang-lv{color:#94a3b8;font-size:7pt;font-family:'JetBrains Mono',monospace}
+.lang-bar{height:3px;background:#f1f5f9;border-radius:2px;overflow:hidden}
+.lang-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#0ea5e9,#0d9488)}
+
+/* Clinical note */
+.clinical{background:#f0fdf4;border:1px solid #bbf7d0;border-left:3px solid #10b981;border-radius:6px;padding:8px 10px}
+.clinical-lbl{font-size:7pt;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:.7px;margin-bottom:3px}
+.clinical-txt{font-size:7.5pt;color:#064e3b;line-height:1.55}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Guardar como PDF</button>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="hdr-name">Martin Rodrigo Morales</div>
+    <div class="hdr-title">Technical Lead de IA · Ingeniero MLOps · Ing. en Sistemas de Información</div>
+    <div class="hdr-contact">
+      <span>✉ mrdesautu@gmail.com</span>
+      <span>📞 +34 644 875 110 · España</span>
+      <span>🔗 linkedin.com/in/mrdesautu</span>
+      <span>🐙 github.com/mrdesautu</span>
+      <span>🌐 mrdesautu.github.io</span>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- MAIN -->
+    <div>
+
+      <!-- PERFIL -->
+      <div class="sec">
+        <div class="sec-title">Perfil Profesional</div>
+        <p class="summary">Technical Lead de IA e Ingeniero MLOps con <strong>más de 5 años</strong> construyendo sistemas LLM y agénticos en producción. Liderando una plataforma multiagente para diagnóstico en telecomunicaciones en <strong>Iatel</strong> (España) y cofundando <strong>Dualtherapist</strong>, próximo al lanzamiento con un equipo de 4 personas. Posicionado de forma única en la intersección de <strong>Ingeniería en Sistemas</strong> y <strong>Psicología Clínica</strong>, con experiencia probada a escala Fortune 500 (Accenture, BBVA/HP). Enfocado en <strong>liderazgo de productos de IA</strong> y <strong>arquitectura de sistemas agénticos</strong>.</p>
+      </div>
+
+      <!-- EXPERIENCIA -->
+      <div class="sec">
+        <div class="sec-title">Experiencia Profesional</div>
+
+        <div class="job">
+          <div class="job-top"><div class="job-title">Technical Lead de IA</div><div class="job-period">Abr 2026 – Presente</div></div>
+          <div class="job-co">Iatel — Telecomunicaciones / IA Empresarial · España</div>
+          <ul class="bul">
+            <li>Liderando un equipo de 4 personas construyendo un sistema de IA multiagente para detección automatizada de causa raíz de fallas de red en grandes infraestructuras de telecomunicaciones empresariales en España.</li>
+            <li>Diseñando arquitectura cloud de extremo a extremo integrando componentes de IA, orquestación de agentes y pipelines de datos en tiempo real para entornos de red complejos.</li>
+            <li>Supervisando decisiones técnicas, planificación de sprints y entrega de una plataforma agéntica de nivel productivo que combina razonamiento LLM con diagnósticos de red estructurados.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top"><div class="job-title">Consultor Independiente de IA &amp; Profesor</div><div class="job-period">2025 – Presente</div></div>
+          <div class="job-co">Northern International University / Independiente</div>
+          <ul class="bul">
+            <li>Designado profesor dictando módulos sobre Psicometría Asistida por IA, Psicopatología Computacional y Sistemas Terapéuticos Conversacionales.</li>
+            <li>Construí pipelines RAG escalables para salud y educación integrando LLMs de HuggingFace con almacenes vectoriales Qdrant/ChromaDB.</li>
+            <li>Mentoré a más de 20 estudiantes en el ciclo completo de proyectos NLP: arquitectura, despliegue con FastAPI y mejores prácticas de producción.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top"><div class="job-title">Ingeniero de IA</div><div class="job-period">2024 – 2025</div></div>
+          <div class="job-co">Accenture — Cliente: HP (Fortune 500)</div>
+          <ul class="bul">
+            <li>Diseñé y desplegué sistemas de evaluación de candidatos basados en RAG, mejorando significativamente la automatización y precisión de las evaluaciones.</li>
+            <li>Lideré la estrategia MLOps para modelos predictivos de cadena de suministro de HP: pipelines PySpark, Docker + CI/CD en Databricks.</li>
+            <li>Optimicé la asignación de recursos y autoescalado del clúster Kubernetes, reduciendo costos de infraestructura cloud.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top"><div class="job-title">Instructor Principal de Datos &amp; Mentor Técnico</div><div class="job-period">2023 – 2025</div></div>
+          <div class="job-co">Henry Bootcamp</div>
+          <ul class="bul">
+            <li>Lideré más de 10 cohortes como Technical Lead &amp; Scrum Master en sprints de simulación productiva de 45 días.</li>
+            <li>Co-diseñé arquitecturas cloud-native (Docker, FastAPI, MLflow) desplegadas por graduados en entornos productivos reales.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top"><div class="job-title">Ingeniero de Big Data</div><div class="job-period">2023 – 2024</div></div>
+          <div class="job-co">Accenture — Cliente: BBVA (Banca)</div>
+          <ul class="bul">
+            <li>Orquesté pipelines ETL de misión crítica en entorno bancario regulado usando Hadoop, Spark on YARN, GCP Dataproc.</li>
+            <li>Implementé monitoreo de Calidad de Datos y Drift de nivel empresarial con Control-M para planificación de alta disponibilidad.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top"><div class="job-title">Científico de Datos Junior</div><div class="job-period">2021 – 2023</div></div>
+          <div class="job-co">CEA Solidario (ONG)</div>
+          <ul class="bul">
+            <li>Construí herramientas de análisis conductual impulsadas por IA para asistencia en autismo, integrando modelos ML para reconocimiento de patrones.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div><!-- /main -->
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sec">
+        <div class="sec-title">Habilidades</div>
+        <div class="skill-group">
+          <div class="skill-label">LLM &amp; Agentes</div>
+          <div class="tags"><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">OpenAI API</span><span class="tag">Google ADK</span><span class="tag">A2A Protocol</span><span class="tag">MCP</span><span class="tag">RAG/GraphRAG</span><span class="tag">HuggingFace</span><span class="tag">Qdrant</span><span class="tag">FAISS</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">MLOps e Infra</div>
+          <div class="tags"><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">MLflow</span><span class="tag">CI/CD</span><span class="tag">FastAPI</span><span class="tag">gRPC</span><span class="tag">Databricks</span><span class="tag">Airflow</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Cloud &amp; Datos</div>
+          <div class="tags"><span class="tag">GCP Vertex AI</span><span class="tag">Firebase</span><span class="tag">AWS SageMaker</span><span class="tag">Azure ML</span><span class="tag">PySpark</span><span class="tag">SQL</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Stack de desarrollo</div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Streamlit</span><span class="tag">n8n</span><span class="tag">Git</span></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Educación</div>
+        <div class="edu">
+          <div class="edu-deg">MSc Inteligencia Artificial</div>
+          <div class="edu-inst">Universidad Tecnológica Nacional</div>
+          <span class="edu-badge">IA &amp; ML</span>
+        </div>
+        <div class="edu">
+          <div class="edu-deg">Ing. en Sistemas de Información</div>
+          <div class="edu-inst">Universidad Tecnológica Nacional</div>
+          <span class="edu-badge">Ingeniería</span>
+        </div>
+        <div class="edu">
+          <div class="edu-deg">Lic. en Psicología</div>
+          <div class="edu-inst">Universidad de Mendoza — 2017</div>
+          <span class="edu-badge">🏅 Mejor Egresado</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="award">
+          <div class="award-lbl">🏅 Excelencia Académica</div>
+          <div class="award-ttl">Medalla de Oro — Mejor Egresado</div>
+          <div class="award-sub">Universidad de Mendoza, 2017</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Idiomas</div>
+        <div class="lang">
+          <div class="lang-row"><span class="lang-name">Inglés</span><span class="lang-lv">C1 — IELTS</span></div>
+          <div class="lang-bar"><div class="lang-fill" style="width:88%"></div></div>
+        </div>
+        <div class="lang">
+          <div class="lang-row"><span class="lang-name">Español</span><span class="lang-lv">Nativo</span></div>
+          <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+        </div>
+        <div class="lang">
+          <div class="lang-row"><span class="lang-name">Francés</span><span class="lang-lv">A2</span></div>
+          <div class="lang-bar"><div class="lang-fill" style="width:30%"></div></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="clinical">
+          <div class="clinical-lbl">Expertise Clínico</div>
+          <div class="clinical-txt">Psicólogo habilitado con 5+ años de experiencia. Evaluación HITL de precisión, detección de alucinaciones y diseño de seguridad en IA para aplicaciones terapéuticas. Investigador en Psicoanálisis Estructural (APOLA).</div>
+        </div>
+      </div>
+
+    </div><!-- /sidebar -->
+  </div><!-- /body -->
+
+</div><!-- /page -->
+</body>
+</html>
