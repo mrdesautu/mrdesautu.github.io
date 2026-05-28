@@ -746,7 +746,8 @@ hbBtn.addEventListener('click',()=>{hbBtn.classList.toggle('open');mobMenu.class
 const LANGS={
   en:{
     nav:['About','Experience','Projects','Background'],
-    badge:'Available for senior / lead AI roles',
+    badge:'Open to senior / lead AI roles · Remote',
+    avail_pills:['🌍 Remote-first','🇪🇺 Europe','🌎 Americas'],
     ht:'MSc Artificial Intelligence  ·  Lic. en Psicología  ·  B.Sc. Systems Engineering',
     stats:['Years Exp.','Mentored','Team Led','Live Projects'],
     download:'Download CV', scroll:'Scroll',
@@ -755,7 +756,8 @@ const LANGS={
     about_ps:[
       'AI Technical Lead &amp; MLOps Engineer with <strong>5+ years</strong> building production-grade LLM and agentic systems. Leading a multi-agent platform for telecom diagnostics at <strong>Iatel</strong>, and co-founding <strong>Dualtherapist</strong> — approaching production launch with a 4-person team.',
       'Uniquely positioned at the intersection of <strong>Systems Engineering</strong> and <strong>Clinical Psychology</strong>. This dual background enables precision HITL evaluation and AI safety design for therapeutic applications that most engineers simply cannot offer.',
-      'Proven at Fortune 500 scale (Accenture, BBVA/HP). Focused on <strong>AI product leadership</strong> and <strong>agentic systems architecture</strong>.'
+      'Proven at Fortune 500 scale (Accenture, BBVA/HP). Focused on <strong>AI product leadership</strong> and <strong>agentic systems architecture</strong>.',
+      'Available for <strong>remote</strong> senior / lead AI roles with flexibility across <strong>Europe and the Americas</strong>.'
     ],
     skill_groups:['LLM &amp; Agents','MLOps &amp; Infra','Cloud &amp; Data','Dev Stack'],
     jobs:[
@@ -787,7 +789,8 @@ const LANGS={
   },
   es:{
     nav:['Sobre mí','Experiencia','Proyectos','Formación'],
-    badge:'Disponible para roles senior / lead en IA',
+    badge:'Disponible para roles senior / lead en IA · Remoto',
+    avail_pills:['🌍 100% Remoto','🇪🇺 Europa','🌎 Américas'],
     ht:'MSc Inteligencia Artificial  ·  Lic. en Psicología  ·  Ing. en Sistemas',
     stats:['Años Exp.','Mentoreados','Equipo liderado','Proyectos activos'],
     download:'Descargar CV', scroll:'Deslizá',
@@ -796,7 +799,8 @@ const LANGS={
     about_ps:[
       'Technical Lead de IA &amp; Ingeniero MLOps con <strong>más de 5 años</strong> construyendo sistemas LLM y agénticos en producción. Liderando una plataforma multiagente para diagnóstico en telecomunicaciones en <strong>Iatel</strong>, y cofundando <strong>Dualtherapist</strong> — próximo al lanzamiento con un equipo de 4 personas.',
       'Posicionado de forma única en la intersección de <strong>Ingeniería en Sistemas</strong> y <strong>Psicología Clínica</strong>. Esta doble formación permite evaluación HITL de precisión y diseño de seguridad en IA para aplicaciones terapéuticas que la mayoría de los ingenieros no pueden ofrecer.',
-      'Probado a escala Fortune 500 (Accenture, BBVA/HP). Enfocado en <strong>liderazgo de productos de IA</strong> y <strong>arquitectura de sistemas agénticos</strong>.'
+      'Probado a escala Fortune 500 (Accenture, BBVA/HP). Enfocado en <strong>liderazgo de productos de IA</strong> y <strong>arquitectura de sistemas agénticos</strong>.',
+      'Disponible para roles senior / lead en IA, <strong>100% remotos</strong>, con flexibilidad en <strong>Europa y América</strong>.'
     ],
     skill_groups:['LLM &amp; Agentes','MLOps e Infra','Cloud y Datos','Stack de desarrollo'],
     jobs:[
@@ -836,6 +840,7 @@ function applyLang(lang){
   document.querySelectorAll('.mob-menu a').forEach((el,i)=>{if(t.nav[i])el.textContent=t.nav[i]});
   // Hero
   document.getElementById('badge-txt').textContent=t.badge;
+  document.querySelectorAll('.avail-pill').forEach((el,i)=>{if(t.avail_pills[i])el.textContent=t.avail_pills[i]});
   document.querySelector('.ht').innerHTML=t.ht;
   document.querySelectorAll('.sl').forEach((el,i)=>{if(t.stats[i])el.textContent=t.stats[i]});
   document.getElementById('cvbtn-txt').textContent=t.download;
