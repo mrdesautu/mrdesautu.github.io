@@ -126,9 +126,10 @@ body.cur-down .cur-r{width:22px;height:22px}
 @keyframes mq{to{transform:translateX(-50%)}}
 .stitle em,.foot-name em{background:linear-gradient(100deg,var(--p-lilac),var(--p-sky) 35%,var(--p-mint) 62%,var(--p-lilac));background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:flow 9s linear infinite}
 @keyframes flow{to{background-position:250% 0}}
-.hero-name{animation:wipe 1s cubic-bezier(.2,.7,.15,1) both}
-@keyframes wipe{from{clip-path:inset(0 100% 0 0);opacity:0;transform:translateY(6px)}to{clip-path:inset(0 0 0 0);opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.marquee{animation:none}.stitle em,.foot-name em{animation:none}.cur,.cur-r{display:none}.hero-name{animation:none}body.fx,body.fx a,body.fx button{cursor:auto}}
+.hero-name .wm{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.hero-name .wi{display:inline-block;transform:translateY(116%);animation:wordUp 1s cubic-bezier(.2,.78,.12,1) both}
+@keyframes wordUp{to{transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.marquee{animation:none}.stitle em,.foot-name em{animation:none}.cur,.cur-r{display:none}.hero-name .wi{animation:none;transform:none}body.fx,body.fx a,body.fx button{cursor:auto}}
 
 /* About */
 .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:52px;align-items:start}
@@ -158,7 +159,7 @@ body.cur-down .cur-r{width:22px;height:22px}
 /* Work */
 .work-feat{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
 .work-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.work-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;display:flex;flex-direction:column}
+.work-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .16s ease,box-shadow .3s,border-color .3s;position:relative;display:flex;flex-direction:column;transform-style:preserve-3d}
 .work-card.feat{padding:28px}
 .work-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(34,37,46,.09);border-color:var(--line2)}
 .work-top{display:flex;align-items:center;gap:10px;margin-bottom:14px;min-height:26px}
@@ -185,7 +186,8 @@ body.cur-down .cur-r{width:22px;height:22px}
 
 /* Background */
 .bg-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.edu-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.edu-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;transition:transform .16s ease,box-shadow .3s,border-color .3s;transform-style:preserve-3d}
+.edu-card:hover{box-shadow:0 16px 38px rgba(34,37,46,.08);border-color:var(--line2)}
 .edu-d{font-family:var(--serif);font-weight:500;font-size:18px;margin-bottom:4px}
 .edu-i{font-size:13px;color:var(--muted);margin-bottom:12px}
 .edu-b{font-family:var(--mono);font-size:10.5px;font-weight:500;padding:4px 10px;border-radius:20px}
@@ -446,7 +448,7 @@ function render(t){
   document.getElementById('hero').innerHTML=`
     <div class="avail reveal"><span class="pulse"></span>${t.avail}</div>
     <div class="hero-eye reveal">${t.eyebrow}</div>
-    <h1 class="hero-name">Martin Rodrigo Morales</h1>
+    <h1 class="hero-name">${'Martin Rodrigo Morales'.split(' ').map((w,i)=>`<span class="wm"><span class="wi" style="animation-delay:${(.12+i*.1).toFixed(2)}s">${w}</span></span>`).join(' ')}</h1>
     <p class="hero-lead reveal">${t.lead}</p>
     <div class="hero-meta reveal">${t.meta}</div>
     <div class="hero-actions reveal">
@@ -587,12 +589,15 @@ addEventListener('scroll',()=>{
   if(FINE && !RM){
     document.body.classList.add('fx');
     const dot=document.querySelector('.cur'),ring=document.querySelector('.cur-r');
-    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,lastCard=null;
     addEventListener('mousemove',e=>{
       mx=e.clientX;my=e.clientY;
       dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;
       const card=e.target.closest('.spot');
-      if(card){const b=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-b.left)+'px');card.style.setProperty('--my',(e.clientY-b.top)+'px');}
+      if(card!==lastCard){if(lastCard)lastCard.style.transform='';lastCard=card;}
+      if(card){const b=card.getBoundingClientRect();const px=(e.clientX-b.left)/b.width,py=(e.clientY-b.top)/b.height;
+        card.style.setProperty('--mx',(e.clientX-b.left)+'px');card.style.setProperty('--my',(e.clientY-b.top)+'px');
+        card.style.transform=`perspective(1000px) rotateY(${(px-.5)*6.5}deg) rotateX(${(.5-py)*6.5}deg) translateY(-5px)`;}
       document.querySelectorAll('.cv-btn').forEach(btn=>{
         const b=btn.getBoundingClientRect(),dx=e.clientX-(b.left+b.width/2),dy=e.clientY-(b.top+b.height/2);
         btn.style.transform=Math.hypot(dx,dy)<95?`translate(${dx*.3}px,${dy*.4}px)`:'';
@@ -602,7 +607,12 @@ addEventListener('scroll',()=>{
     document.addEventListener('mouseover',e=>document.body.classList.toggle('cur-hov',!!e.target.closest('a,button,.work-card,.chip,.edu-card,.tlink')));
     addEventListener('mousedown',()=>document.body.classList.add('cur-down'));
     addEventListener('mouseup',()=>document.body.classList.remove('cur-down'));
+    document.addEventListener('mouseleave',()=>{if(lastCard){lastCard.style.transform='';lastCard=null;}});
   }
+
+  /* hero parallax on scroll */
+  if(!RM){const hi=document.getElementById('hero');
+    addEventListener('scroll',()=>{const y=scrollY;if(y<=860){hi.style.transform=`translateY(${y*.12}px)`;hi.style.opacity=String(Math.max(0,1-y/700));}},{passive:true});}
 
   /* WebGL pastel aurora — hero background */
   const cv=document.querySelector('.hero-gl');
