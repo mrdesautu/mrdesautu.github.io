@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martin Rodrigo Morales — AI Technical Lead</title>
+<meta name="description" content="Martin Rodrigo Morales — AI Technical Lead & MLOps Engineer building production-grade LLM and agentic systems. 5+ years, Fortune 500 scale. Open to senior / lead AI roles.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF7; --paper2:#F4F1EA; --card:#FFFFFF;
+  --ink:#22252E; --muted:#767A85; --faint:#9AA0AB; --line:#EAE6DE; --line2:#F0EDE6;
+  --accent:#6E63C6; --accent-soft:#EDEAF8; --accent-ink:#584FB0;
+  --p-lilac:#7A6FD0; --p-lilac-s:#ECE9F9;
+  --p-sky:#5E8FC7;   --p-sky-s:#E4EEF8;
+  --p-mint:#3FA383;  --p-mint-s:#E1F1EA;
+  --p-blush:#D07E63; --p-blush-s:#FAEBE3;
+  --p-amber:#B98F3E; --p-amber-s:#F6EFD8;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Hanken Grotesk',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--accent-soft);color:var(--accent-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:1060px;margin:0 auto;padding:0 32px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:9px}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.stitle{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4.2vw,44px);line-height:1.08;letter-spacing:-.5px;text-wrap:balance;margin:14px 0 6px}
+.stitle em{font-style:italic;color:var(--accent-ink)}
+
+/* ── Nav ── */
+.nav{position:sticky;top:0;z-index:100;background:rgba(251,250,247,.72);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+.nav.sc{border-color:var(--line);background:rgba(251,250,247,.86)}
+.nav-in{max-width:1060px;margin:0 auto;padding:15px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-family:var(--serif);font-weight:600;font-size:18px;letter-spacing:-.3px}
+.brand span{color:var(--accent)}
+.nav-r{display:flex;align-items:center;gap:26px}
+.nav-links{display:flex;gap:26px}
+.nav-links a{font-size:13.5px;font-weight:500;color:var(--muted);transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;right:100%;bottom:-4px;height:1.5px;background:var(--accent);transition:right .25s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a.act::after{right:0}
+.nav-links a.act{color:var(--ink)}
+.langs{display:flex;background:var(--paper2);border:1px solid var(--line);border-radius:20px;padding:3px}
+.langs button{font-family:var(--mono);font-size:11px;font-weight:500;padding:3px 10px;border:none;background:none;color:var(--faint);border-radius:14px;cursor:pointer;transition:all .2s}
+.langs button.on{background:var(--ink);color:var(--paper)}
+.cv-btn{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#fff;background:var(--accent);padding:9px 18px;border-radius:22px;transition:transform .2s,box-shadow .2s,background .2s}
+.cv-btn:hover{transform:translateY(-1px);background:var(--accent-ink);box-shadow:0 8px 22px rgba(110,99,198,.28)}
+.cv-btn svg{width:14px;height:14px}
+.burger{display:none;background:none;border:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob{display:none;flex-direction:column;padding:8px 32px 20px;border-bottom:1px solid var(--line);background:var(--paper)}
+.mob.open{display:flex}
+.mob a{padding:12px 0;font-size:15px;font-weight:500;color:var(--muted);border-bottom:1px solid var(--line2)}
+.mob-langs{display:flex;gap:8px;padding:16px 0 2px}
+.mob-langs button{font-family:var(--mono);font-size:12px;font-weight:600;padding:6px 16px;border:1px solid var(--line);background:none;border-radius:20px;color:var(--muted);cursor:pointer}
+.mob-langs button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ── Hero ── */
+.hero{position:relative;padding:clamp(70px,13vh,140px) 0 clamp(56px,9vh,96px);overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;z-index:0;pointer-events:none}
+.blob.b1{width:440px;height:440px;background:var(--p-lilac-s);top:-120px;right:-80px;opacity:.8}
+.blob.b2{width:360px;height:360px;background:var(--p-mint-s);top:120px;right:180px;opacity:.6}
+.blob.b3{width:300px;height:300px;background:var(--p-blush-s);bottom:-90px;left:-60px;opacity:.55}
+.hero-in{position:relative;z-index:1;max-width:760px}
+.avail{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:6px 15px;font-size:12px;font-weight:500;color:var(--muted);margin-bottom:26px}
+.avail .pulse{width:8px;height:8px;border-radius:50%;background:var(--p-mint);box-shadow:0 0 0 0 rgba(63,163,131,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,163,131,.5)}70%{box-shadow:0 0 0 7px rgba(63,163,131,0)}100%{box-shadow:0 0 0 0 rgba(63,163,131,0)}}
+.hero-eye{font-family:var(--mono);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:16px}
+.hero-name{font-family:var(--serif);font-weight:500;font-size:clamp(44px,8vw,82px);line-height:.98;letter-spacing:-1.8px;text-wrap:balance}
+.hero-lead{font-size:clamp(16px,2vw,19px);color:#464A54;line-height:1.7;margin:24px 0 8px;max-width:640px}
+.hero-lead b{font-weight:600;color:var(--ink)}
+.hero-meta{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:14px}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:34px}
+.hero-actions .cv-btn{padding:12px 24px;font-size:14px}
+.tlink{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:500;color:var(--muted);transition:color .2s}
+.tlink svg{width:16px;height:16px}
+.tlink:hover{color:var(--accent-ink)}
+.hero-stats{display:flex;flex-wrap:wrap;gap:34px;margin-top:52px;padding-top:30px;border-top:1px solid var(--line)}
+.stat .n{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1;letter-spacing:-1px}
+.stat .l{font-family:var(--mono);font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-top:7px}
+
+/* ── Sections ── */
+.section{padding:clamp(60px,9vh,104px) 0;position:relative}
+.section.alt{background:var(--paper2)}
+.section-head{margin-bottom:44px;max-width:640px}
+.section-head .stitle{margin-bottom:0}
+.lead2{font-size:16px;color:var(--muted);margin-top:14px;line-height:1.7}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+.reveal.vs{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.avail .pulse{animation:none}}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:52px;align-items:start}
+.about-txt p{color:#4A4E58;font-size:16px;line-height:1.8;margin-bottom:16px}
+.about-txt p:last-child{margin-bottom:0}
+.about-txt b{color:var(--ink);font-weight:600}
+.focus{display:flex;flex-direction:column;gap:14px}
+.focus-i{display:flex;gap:13px;align-items:flex-start}
+.focus-dot{width:10px;height:10px;border-radius:3px;margin-top:6px;flex:none}
+.focus-t{font-weight:600;font-size:14.5px}
+.focus-d{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* Experience */
+.exp{display:flex;flex-direction:column}
+.role{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:26px 0;border-top:1px solid var(--line)}
+.role:last-child{border-bottom:1px solid var(--line)}
+.role-year{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:3px}
+.role-now{display:inline-flex;align-items:center;gap:6px;color:var(--p-mint)}
+.role-now::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--p-mint)}
+.role-t{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:-.3px}
+.role-co{font-size:13.5px;color:var(--accent-ink);margin:3px 0 12px;font-weight:500}
+.role-b{list-style:none;display:flex;flex-direction:column;gap:7px}
+.role-b li{font-size:14.5px;color:#50545E;line-height:1.6;padding-left:18px;position:relative}
+.role-b li::before{content:'';position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:1.5px;background:var(--line);transform:rotate(45deg)}
+.m{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--accent-ink);background:var(--accent-soft);border-radius:5px;padding:1px 6px;white-space:nowrap}
+
+/* Work */
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.work-card{grid-column:span 1;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;transition:transform .3s,box-shadow .3s,border-color .3s;position:relative}
+.work-card.feat{grid-column:span 2}
+.work-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(34,37,46,.09);border-color:var(--line2)}
+.work-top{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.work-dot{width:11px;height:11px;border-radius:4px;flex:none}
+.work-badge{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.6px;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.work-name{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:-.4px;margin-bottom:8px}
+.work-stack{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.work-b{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.work-b li{font-size:14px;color:#50545E;line-height:1.6;padding-left:16px;position:relative}
+.work-b li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:12px;top:1px}
+.work-link{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--ink);border:1px solid var(--line);padding:7px 15px;border-radius:20px;transition:all .2s}
+.work-link:hover{border-color:var(--accent);color:var(--accent-ink);background:var(--accent-soft)}
+.work-link svg{width:13px;height:13px}
+.feat .work-b{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px}
+
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px 32px}
+.skill-g .skill-l{font-family:var(--mono);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.skill-l .sd{width:9px;height:9px;border-radius:3px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:13px;color:#3F434D;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:5px 11px;transition:all .2s;font-weight:500}
+.chip:hover{border-color:var(--accent);color:var(--accent-ink);transform:translateY(-2px)}
+
+/* Background */
+.bg-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.edu-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.edu-d{font-family:var(--serif);font-weight:500;font-size:18px;margin-bottom:4px}
+.edu-i{font-size:13px;color:var(--muted);margin-bottom:12px}
+.edu-b{font-family:var(--mono);font-size:10.5px;font-weight:500;padding:4px 10px;border-radius:20px}
+.note{grid-column:span 2;border-radius:16px;padding:26px 28px;background:linear-gradient(135deg,var(--p-mint-s),var(--p-sky-s));border:1px solid var(--line)}
+.note-l{font-family:var(--mono);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--p-mint);margin-bottom:10px;font-weight:500}
+.note-t{font-size:14.5px;color:#414852;line-height:1.75}
+.note-t b{color:var(--ink);font-weight:600}
+
+/* Footer */
+footer{background:var(--ink);color:#D8DAE0;padding:64px 0 48px}
+.foot-in{max-width:1060px;margin:0 auto;padding:0 32px}
+.foot-name{font-family:var(--serif);font-weight:500;font-size:clamp(28px,5vw,44px);color:#fff;letter-spacing:-.6px;text-wrap:balance;max-width:640px;line-height:1.1}
+.foot-name em{font-style:italic;color:#B7B0E8}
+.foot-sub{font-size:15px;color:#9AA0AB;margin:16px 0 32px}
+.foot-links{display:flex;flex-wrap:wrap;gap:12px}
+.foot-links a{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:#D8DAE0;border:1px solid rgba(255,255,255,.14);padding:10px 18px;border-radius:24px;transition:all .2s}
+.foot-links a:hover{border-color:rgba(183,176,232,.6);color:#fff;background:rgba(183,176,232,.1)}
+.foot-links svg{width:15px;height:15px}
+.foot-bot{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-family:var(--mono);font-size:11px;color:#767A85;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media(max-width:820px){
+  .nav-links,.langs.desk{display:none}
+  .burger{display:flex}
+  .about-grid,.work-grid,.bg-grid{grid-template-columns:1fr}
+  .work-card.feat,.note{grid-column:span 1}
+  .feat .work-b{grid-template-columns:1fr}
+  .role{grid-template-columns:1fr;gap:6px}
+  .role-year{padding-top:0}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:22px 16px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand">Martin R. <span>Morales</span></a>
+    <div class="nav-r">
+      <nav class="nav-links" id="nav-links"></nav>
+      <div class="langs desk" id="langs">
+        <button data-l="en" class="on">EN</button>
+        <button data-l="es">ES</button>
+      </div>
+      <a class="cv-btn" id="nav-cv" href="Martin_Morales_CV_2026.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span id="nav-cv-txt">CV</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mob" id="mob"></div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <div class="wrap hero-in" id="hero"></div>
+  </section>
+
+  <section class="section" id="about"></section>
+  <section class="section alt" id="experience"></section>
+  <section class="section" id="work"></section>
+  <section class="section alt" id="skills"></section>
+  <section class="section" id="background"></section>
+</main>
+
+<footer id="contact"><div class="foot-in" id="foot"></div></footer>
+
+<script>
+const IC={
+  gh:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 015.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>',
+  li:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3H3.6C3 3 2.5 3.5 2.5 4.1v15.8c0 .6.5 1.1 1.1 1.1h16.8c.6 0 1.1-.5 1.1-1.1V4.1c0-.6-.5-1.1-1.1-1.1zM8.3 18.3H5.6V9.7h2.7v8.6zM6.9 8.5a1.6 1.6 0 110-3.1 1.6 1.6 0 010 3.1zm11.4 9.8h-2.7v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3h-2.7V9.7h2.6v1.2h.1c.4-.7 1.2-1.4 2.5-1.4 2.7 0 3.2 1.8 3.2 4.1v4.7z"/></svg>',
+  mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+  ph:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg>',
+  wa:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15l-1.3 4.9 5-1.3A10 10 0 1012 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.8-.6-3.1-1.3-5.1-4.5-5.3-4.7-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.1.1.6-.1 1.3z"/></svg>',
+  dl:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>',
+  ar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>'
+};
+const PAL=['lilac','sky','mint','blush','amber'];
+const D={
+  en:{
+    doctitle:'Martin Rodrigo Morales — AI Technical Lead',
+    nav:[['About','#about'],['Experience','#experience'],['Work','#work'],['Contact','#contact']],
+    cv:'Download CV', cvfile:'Martin_Morales_CV_2026.pdf',
+    avail:'Open to senior / lead AI roles · Remote',
+    eyebrow:'AI Technical Lead · MLOps Engineer · AI Systems Architect',
+    lead:'I build production-grade <b>LLM & agentic systems</b>. At Iatel I lead the team behind <b>+OAA / NOA</b>, a multi-agent platform diagnosing telecom networks in real time — and I co-found <b>Dualtherapist</b>, a clinical-AI platform approaching launch.',
+    meta:'MSc Artificial Intelligence · Lic. en Psicología · B.Sc. Systems Engineering',
+    stats:[['5+','Years experience'],['4','Team led'],['20+','Mentored'],['3','Live systems']],
+    about_eye:'About', about_title:'Engineering clarity into <em>intelligent systems</em>',
+    about:[
+      'AI Technical Lead & MLOps Engineer with <b>5+ years</b> shipping production LLM and agentic systems. At <b>Iatel</b> I lead a 4-person team building <b>+OAA / NOA</b> — an event-driven, multi-agent platform in production for a leading Spanish telecom operator that automates root-cause diagnosis of network failures.',
+      'I sit at the intersection of <b>Systems Engineering</b> and <b>Clinical Psychology</b> — a dual background that lets me design HITL evaluation and AI-safety layers most engineers can’t. Proven at Fortune 500 scale with Accenture, BBVA and HP.'
+    ],
+    focus_title:'What I focus on',
+    focus:[['Agentic systems & LLMOps','MCP, A2A, BPM orchestration, in-house model gateways'],['RAG / GraphRAG','Retrieval pipelines and clinical knowledge graphs'],['Cloud & MLOps architecture','End-to-end, event-driven, production-grade']],
+    exp_eye:'Career', exp_title:'Professional <em>experience</em>',
+    exp:[
+      {y:'Apr 2026 — Now',now:1,t:'AI Technical Lead',c:'Iatel · Telecommunications / Enterprise AI · Spain',b:[
+        'Lead a 4-person team building <b>+OAA / NOA</b>, an event-driven multi-agent platform (Kafka + Apache Flink + Elasticsearch, agent orchestration via Flowable BPM) in production for a leading Spanish telecom operator.',
+        'Designed the in-house <b>LLMOps</b> layer: a LiteLLM + Langfuse gateway and a self-hosted Qwen3-30B model on GKE, plus an LLM reasoning pipeline over live network telemetry for root-cause classification.',
+        'Own architecture and delivery: Next.js/React 19, FastAPI + Postgres, OpenTelemetry, Kubernetes + Helm.']},
+      {y:'2025 — Now',t:'Independent AI Consultant & Professor',c:'Northern International University / Self-employed',b:[
+        'Professor delivering modules on AI-Assisted Psychometrics, Computational Psychopathology and Conversational Therapeutic Systems.',
+        'Mentored 20+ students through the full NLP lifecycle — LangChain architecture, FastAPI deployment and production best practices.']},
+      {y:'2024 — 2025',t:'AI Engineer',c:'Accenture · Client: HP (Fortune 500)',b:[
+        'Built a RAG-based candidate evaluation system (MinHash near-dedup, perplexity filtering, domain rebalancing) — improving <span class="m">NDCG@5 0.71→0.83</span>.',
+        'Led MLOps for HP supply-chain predictive models: PySpark pipelines, Docker + Databricks CI/CD, Kubernetes autoscaling.']},
+      {y:'2023 — 2025',t:'Lead Data Instructor & Technical Mentor',c:'Henry Bootcamp',b:[
+        'Led 10+ cohorts as Technical Lead & Scrum Master through 45-day production-simulation sprints.',
+        'Co-designed cloud-native architectures (Docker, FastAPI, MLflow) deployed by graduates to real production.']},
+      {y:'2023 — 2024',t:'Big Data Engineer',c:'Accenture · Client: BBVA (Banking)',b:[
+        'Orchestrated mission-critical ETL in a regulated banking environment (Hadoop, Spark on YARN, GCP Dataproc).',
+        'Fixed dataloader starvation → throughput <span class="m">~2.5×</span>; Data Quality & Drift monitoring with Control-M.']},
+      {y:'2021 — 2023',t:'Junior Data Scientist',c:'CEA Solidario (NGO)',b:[
+        'Built AI-driven behavioral analysis tools for autism assistance with early ML models for pattern recognition.']}
+    ],
+    work_eye:'Selected work', work_title:'Things I’ve <em>built</em>',
+    work_lead:'A few systems I designed and shipped end-to-end.',
+    feat_badge:'Approaching launch',
+    work:[
+      {feat:1,name:'Dualtherapist — Clinical AI Platform',stack:'Turbo · Next.js 15 · Expo/Solito · FastAPI · Gemini/Vertex AI · Neo4j · Firestore · K8s/Terraform',url:'https://github.com/mrdesautu/Dualtherapist',b:[
+        'Co-founder & technical coordinator of a 4-person team; own the architecture and agent design.',
+        'E2E: Next.js 15 web + Expo mobile (universal Solito UI) + a Python/FastAPI ai-service for session transcription, embedding-similarity triage and a RAG knowledge base.',
+        'Clinical knowledge graph in Neo4j; Firebase Auth + JWT/Redis; Docker / Kubernetes / Terraform.',
+        'Designed the HITL evaluation and clinical safety layer as a licensed psychologist.']},
+      {name:'Multi-Agent Knowledge Graph Builder',stack:'Google ADK 1.5 · LiteLLM · Neo4j · Python 3.11',url:'https://github.com/mrdesautu/Multi_Agent_Knowledge_Graph_Builder',b:[
+        'Autonomous agents for entity extraction and Neo4j knowledge-graph construction from unstructured data.',
+        'Two-stage chunking (coarse semantic + fine structural) lifted entity extraction <span class="m">+8 F1</span>.']},
+      {name:'MetaAgent — Hybrid Memory AI',stack:'LangChain · FAISS + Qdrant · OpenAI API · Docker',url:'https://github.com/mrdesautu/Meta-agent',b:[
+        'Persistent assistant with hybrid vector memory and human-feedback scoring loops.',
+        'Containerized with automated memory consolidation and session persistence.']},
+      {name:'Production MLOps Pipeline',stack:'DistilBERT · FastAPI · MLflow · HuggingFace · CI/CD',url:'https://github.com/mrdesautu/MLOps-PI-N1',b:[
+        'DistilBERT at 80% accuracy with automated CI/CD for model versioning.',
+        'fp16 + gradient checkpointing (<span class="m">38→22 GB</span>) and INT8 quantization (<span class="m">p99 280→95 ms</span>).']}
+    ],
+    skills_eye:'Toolbox', skills_title:'Skills & <em>stack</em>',
+    skills:[
+      ['LLM & Agents',['MCP','A2A','RAG/GraphRAG','LangChain','LangGraph','Google ADK','LiteLLM','Langfuse','Neo4j','HuggingFace','Qdrant']],
+      ['MLOps & Infra',['Docker','Kubernetes','Helm','Terraform','MLflow','CI/CD','FastAPI','OpenTelemetry','Redis']],
+      ['Data & Streaming',['Kafka','Apache Flink','Elasticsearch','Postgres','PySpark','Databricks','SQL']],
+      ['Cloud',['GCP Vertex AI','Gemini','Firebase','AWS','Azure ML']],
+      ['Dev stack',['Python','Next.js','React Native','Expo/Solito','Turborepo','Nx','Git']]
+    ],
+    bg_eye:'Background', bg_title:'Education & <em>expertise</em>',
+    edu:[
+      ['MSc Artificial Intelligence','AI & Knowledge Engineering — Universidad Tecnológica Nacional','AI & ML','lilac'],
+      ['B.Sc. Systems Engineering','Universidad Tecnológica Nacional','Engineering','sky'],
+      ['Lic. en Psicología','Universidad de Mendoza — 2017','🏅 Gold Medal Graduate','amber'],
+      ['Research — APOLA','Structural Psychoanalysis · topology, language & Knowledge Graphs','Speaker','mint']
+    ],
+    note_l:'Clinical domain expertise',
+    note_t:'Licensed <b>Psychologist</b> with 5+ years of clinical experience. I apply diagnostic precision to <b>LLM evaluation (HITL)</b>, hallucination detection and AI-safety design for mental-health and therapeutic systems — a cross-domain edge most engineering profiles can’t offer.',
+    foot_name:'Let’s build something <em>worth shipping</em>.',
+    foot_sub:'Open to senior / lead AI roles · Remote across Europe & the Americas.',
+    foot_bot:'Designed & built by Martin Rodrigo Morales · 2026'
+  },
+  es:{
+    doctitle:'Martin Rodrigo Morales — Technical Lead de IA',
+    nav:[['Sobre mí','#about'],['Experiencia','#experience'],['Proyectos','#work'],['Contacto','#contact']],
+    cv:'Descargar CV', cvfile:'Martin_Morales_CV_2026_ES.pdf',
+    avail:'Disponible para roles senior / lead en IA · Remoto',
+    eyebrow:'Technical Lead de IA · Ingeniero MLOps · Arquitecto de Sistemas de IA',
+    lead:'Construyo <b>sistemas LLM y agénticos</b> en producción. En Iatel lidero el equipo de <b>+OAA / NOA</b>, una plataforma multiagente que diagnostica redes de telecomunicaciones en tiempo real — y cofundo <b>Dualtherapist</b>, una plataforma de IA clínica próxima al lanzamiento.',
+    meta:'MSc Inteligencia Artificial · Lic. en Psicología · Ing. en Sistemas de Información',
+    stats:[['5+','Años de exp.'],['4','Equipo liderado'],['20+','Mentoreados'],['3','Sistemas activos']],
+    about_eye:'Sobre mí', about_title:'Convierto claridad de ingeniería en <em>sistemas inteligentes</em>',
+    about:[
+      'Technical Lead de IA e Ingeniero MLOps con <b>más de 5 años</b> construyendo sistemas LLM y agénticos en producción. En <b>Iatel</b> lidero un equipo de 4 personas sobre <b>+OAA / NOA</b> — una plataforma multiagente orientada a eventos, en producción para un operador de telecomunicaciones líder en España, que automatiza el diagnóstico de causa raíz de fallos de red.',
+      'Me sitúo en la intersección de la <b>Ingeniería en Sistemas</b> y la <b>Psicología Clínica</b> — una doble formación que me permite diseñar evaluación HITL y capas de seguridad de IA que la mayoría de ingenieros no puede. Trayectoria a escala Fortune 500 con Accenture, BBVA y HP.'
+    ],
+    focus_title:'En qué me enfoco',
+    focus:[['Sistemas agénticos & LLMOps','MCP, A2A, orquestación BPM, gateways de modelo propios'],['RAG / GraphRAG','Pipelines de recuperación y grafos de conocimiento clínico'],['Arquitectura Cloud & MLOps','De extremo a extremo, orientada a eventos, productiva']],
+    exp_eye:'Carrera', exp_title:'Experiencia <em>profesional</em>',
+    exp:[
+      {y:'Abr 2026 — Hoy',now:1,t:'Technical Lead de IA',c:'Iatel · Telecomunicaciones / IA Empresarial · España',b:[
+        'Lidero un equipo de 4 personas en <b>+OAA / NOA</b>, una plataforma multiagente orientada a eventos (Kafka + Apache Flink + Elasticsearch, orquestación de agentes con Flowable BPM) en producción para un operador de telecomunicaciones líder en España.',
+        'Diseñé la capa <b>LLMOps</b> propia: gateway LiteLLM + Langfuse y modelo Qwen3-30B self-hosted en GKE, más un pipeline de razonamiento LLM sobre telemetría de red en vivo para clasificación de causa raíz.',
+        'Responsable de la arquitectura y la entrega: Next.js/React 19, FastAPI + Postgres, OpenTelemetry, Kubernetes + Helm.']},
+      {y:'2025 — Hoy',t:'Consultor Independiente de IA & Profesor',c:'Northern International University / Independiente',b:[
+        'Profesor dictando módulos sobre Psicometría Asistida por IA, Psicopatología Computacional y Sistemas Terapéuticos Conversacionales.',
+        'Mentoré a más de 20 estudiantes en el ciclo completo NLP — arquitectura con LangChain, despliegue con FastAPI y buenas prácticas de producción.']},
+      {y:'2024 — 2025',t:'Ingeniero de IA',c:'Accenture · Cliente: HP (Fortune 500)',b:[
+        'Sistema de evaluación de candidatos basado en RAG (near-dedup MinHash, filtrado por perplejidad, rebalanceo de dominios) — mejorando <span class="m">NDCG@5 0,71→0,83</span>.',
+        'Lideré MLOps para modelos predictivos de cadena de suministro de HP: pipelines PySpark, Docker + CI/CD en Databricks, autoescalado en Kubernetes.']},
+      {y:'2023 — 2025',t:'Instructor Principal de Datos & Mentor Técnico',c:'Henry Bootcamp',b:[
+        'Lideré más de 10 cohortes como Technical Lead & Scrum Master en sprints de simulación productiva de 45 días.',
+        'Co-diseñé arquitecturas cloud-native (Docker, FastAPI, MLflow) desplegadas por graduados en producción real.']},
+      {y:'2023 — 2024',t:'Ingeniero de Big Data',c:'Accenture · Cliente: BBVA (Banca)',b:[
+        'Orquesté ETL de misión crítica en entorno bancario regulado (Hadoop, Spark on YARN, GCP Dataproc).',
+        'Resolví inanición del dataloader → throughput <span class="m">~2,5×</span>; monitoreo de Calidad de Datos y Drift con Control-M.']},
+      {y:'2021 — 2023',t:'Científico de Datos Junior',c:'CEA Solidario (ONG)',b:[
+        'Construí herramientas de análisis conductual con IA para asistencia en autismo, con modelos ML para reconocimiento de patrones.']}
+    ],
+    work_eye:'Proyectos', work_title:'Cosas que he <em>construido</em>',
+    work_lead:'Algunos sistemas que diseñé y llevé de punta a punta.',
+    feat_badge:'Próximo al lanzamiento',
+    work:[
+      {feat:1,name:'Dualtherapist — Plataforma de IA Clínica',stack:'Turbo · Next.js 15 · Expo/Solito · FastAPI · Gemini/Vertex AI · Neo4j · Firestore · K8s/Terraform',url:'https://github.com/mrdesautu/Dualtherapist',b:[
+        'Cofundador y coordinador técnico de un equipo de 4; responsable de la arquitectura y el diseño de agentes.',
+        'E2E: web Next.js 15 + móvil Expo (UI universal Solito) + ai-service Python/FastAPI con transcripción de sesiones, triaje por similitud de embeddings y base de conocimiento RAG.',
+        'Grafo de conocimiento clínico en Neo4j; Firebase Auth + JWT/Redis; Docker / Kubernetes / Terraform.',
+        'Diseñé la evaluación HITL y la capa de seguridad clínica como psicólogo habilitado.']},
+      {name:'Multi-Agent Knowledge Graph Builder',stack:'Google ADK 1.5 · LiteLLM · Neo4j · Python 3.11',url:'https://github.com/mrdesautu/Multi_Agent_Knowledge_Graph_Builder',b:[
+        'Agentes autónomos para extracción de entidades y construcción de un grafo de conocimiento en Neo4j desde datos no estructurados.',
+        'El chunking en dos etapas (semántico grueso + estructural fino) mejoró la extracción <span class="m">+8 F1</span>.']},
+      {name:'MetaAgent — IA con Memoria Híbrida',stack:'LangChain · FAISS + Qdrant · OpenAI API · Docker',url:'https://github.com/mrdesautu/Meta-agent',b:[
+        'Asistente persistente con memoria vectorial híbrida y bucles de feedback humano.',
+        'Contenerizado, con consolidación automática de memoria y persistencia de sesión.']},
+      {name:'Pipeline MLOps en Producción',stack:'DistilBERT · FastAPI · MLflow · HuggingFace · CI/CD',url:'https://github.com/mrdesautu/MLOps-PI-N1',b:[
+        'DistilBERT al 80% de precisión con CI/CD automatizado para versionado de modelos.',
+        'fp16 + gradient checkpointing (<span class="m">38→22 GB</span>) y cuantización INT8 (<span class="m">p99 280→95 ms</span>).']}
+    ],
+    skills_eye:'Herramientas', skills_title:'Skills & <em>stack</em>',
+    skills:[
+      ['LLM & Agentes',['MCP','A2A','RAG/GraphRAG','LangChain','LangGraph','Google ADK','LiteLLM','Langfuse','Neo4j','HuggingFace','Qdrant']],
+      ['MLOps e Infra',['Docker','Kubernetes','Helm','Terraform','MLflow','CI/CD','FastAPI','OpenTelemetry','Redis']],
+      ['Datos & Streaming',['Kafka','Apache Flink','Elasticsearch','Postgres','PySpark','Databricks','SQL']],
+      ['Cloud',['GCP Vertex AI','Gemini','Firebase','AWS','Azure ML']],
+      ['Stack de desarrollo',['Python','Next.js','React Native','Expo/Solito','Turborepo','Nx','Git']]
+    ],
+    bg_eye:'Formación', bg_title:'Educación & <em>expertise</em>',
+    edu:[
+      ['MSc Inteligencia Artificial','Ing. del Conocimiento e IA — Universidad Tecnológica Nacional','IA & ML','lilac'],
+      ['Ing. en Sistemas de Información','Universidad Tecnológica Nacional','Ingeniería','sky'],
+      ['Lic. en Psicología','Universidad de Mendoza — 2017','🏅 Mejor Egresado','amber'],
+      ['Investigación — APOLA','Psicoanálisis Estructural · topología, lenguaje y Knowledge Graphs','Ponente','mint']
+    ],
+    note_l:'Expertise en dominio clínico',
+    note_t:'<b>Psicólogo habilitado</b> con más de 5 años de experiencia clínica. Aplico precisión diagnóstica a la <b>evaluación de LLMs (HITL)</b>, detección de alucinaciones y diseño de seguridad de IA para sistemas de salud mental — una ventaja transversal que pocos perfiles de ingeniería pueden ofrecer.',
+    foot_name:'Construyamos algo que <em>valga la pena lanzar</em>.',
+    foot_sub:'Disponible para roles senior / lead en IA · Remoto en Europa y América.',
+    foot_bot:'Diseñado y construido por Martin Rodrigo Morales · 2026'
+  }
+};
+
+const colOf=k=>`var(--p-${k})`, colSoft=k=>`var(--p-${k}-s)`;
+
+function render(t){
+  // nav
+  document.getElementById('nav-links').innerHTML=t.nav.map(n=>`<a href="${n[1]}">${n[0]}</a>`).join('');
+  document.getElementById('mob').innerHTML=t.nav.map(n=>`<a href="${n[1]}">${n[0]}</a>`).join('')
+    +`<div class="mob-langs"><button data-l="en"${lang==='en'?' class="on"':''}>EN</button><button data-l="es"${lang==='es'?' class="on"':''}>ES</button></div>`;
+  document.querySelectorAll('#langs button').forEach(x=>x.classList.toggle('on',x.dataset.l===lang));
+  document.getElementById('nav-cv-txt').textContent='CV';
+  document.getElementById('nav-cv').href=t.cvfile;
+
+  // hero
+  document.getElementById('hero').innerHTML=`
+    <div class="avail reveal"><span class="pulse"></span>${t.avail}</div>
+    <div class="hero-eye reveal">${t.eyebrow}</div>
+    <h1 class="hero-name reveal">Martin Rodrigo Morales</h1>
+    <p class="hero-lead reveal">${t.lead}</p>
+    <div class="hero-meta reveal">${t.meta}</div>
+    <div class="hero-actions reveal">
+      <a class="cv-btn" href="${t.cvfile}" download>${IC.dl}${t.cv}</a>
+      <a class="tlink" href="https://github.com/mrdesautu" target="_blank" rel="noopener">${IC.gh}GitHub</a>
+      <a class="tlink" href="https://www.linkedin.com/in/mrdesautu" target="_blank" rel="noopener">${IC.li}LinkedIn</a>
+      <a class="tlink" href="mailto:mrdesautu@gmail.com">${IC.mail}Email</a>
+    </div>
+    <div class="hero-stats reveal">${t.stats.map(s=>`<div class="stat"><div class="n" data-c="${s[0]}">0</div><div class="l">${s[1]}</div></div>`).join('')}</div>`;
+
+  // about
+  document.getElementById('about').innerHTML=`<div class="wrap">
+    <div class="section-head reveal"><div class="eyebrow">${t.about_eye}</div><h2 class="stitle">${t.about_title}</h2></div>
+    <div class="about-grid">
+      <div class="about-txt reveal">${t.about.map(p=>`<p>${p}</p>`).join('')}</div>
+      <div class="focus reveal">
+        <div class="hero-meta" style="margin:0 0 4px">${t.focus_title}</div>
+        ${t.focus.map((f,i)=>`<div class="focus-i"><span class="focus-dot" style="background:${colOf(PAL[i])}"></span><div><div class="focus-t">${f[0]}</div><div class="focus-d">${f[1]}</div></div></div>`).join('')}
+      </div>
+    </div></div>`;
+
+  // experience
+  document.getElementById('experience').innerHTML=`<div class="wrap">
+    <div class="section-head reveal"><div class="eyebrow">${t.exp_eye}</div><h2 class="stitle">${t.exp_title}</h2></div>
+    <div class="exp">${t.exp.map(j=>`<div class="role reveal">
+      <div class="role-year">${j.now?`<span class="role-now">${j.y}</span>`:j.y}</div>
+      <div><div class="role-t">${j.t}</div><div class="role-co">${j.c}</div>
+      <ul class="role-b">${j.b.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    </div>`).join('')}</div></div>`;
+
+  // work
+  document.getElementById('work').innerHTML=`<div class="wrap">
+    <div class="section-head reveal"><div class="eyebrow">${t.work_eye}</div><h2 class="stitle">${t.work_title}</h2><p class="lead2">${t.work_lead}</p></div>
+    <div class="work-grid">${t.work.map((w,i)=>{const c=PAL[i%PAL.length];return `<div class="work-card reveal${w.feat?' feat':''}">
+      <div class="work-top"><span class="work-dot" style="background:${colOf(c)}"></span>${w.feat?`<span class="work-badge" style="background:${colSoft('mint')};color:var(--p-mint)">${t.feat_badge}</span>`:''}</div>
+      <div class="work-name">${w.name}</div>
+      <div class="work-stack">${w.stack}</div>
+      <ul class="work-b">${w.b.map(x=>`<li>${x}</li>`).join('')}</ul>
+      <a class="work-link" href="${w.url}" target="_blank" rel="noopener">${IC.gh}GitHub ${IC.ar}</a>
+    </div>`}).join('')}</div></div>`;
+
+  // skills
+  document.getElementById('skills').innerHTML=`<div class="wrap">
+    <div class="section-head reveal"><div class="eyebrow">${t.skills_eye}</div><h2 class="stitle">${t.skills_title}</h2></div>
+    <div class="skills-grid">${t.skills.map((g,i)=>{const c=PAL[i%PAL.length];return `<div class="skill-g reveal"><div class="skill-l"><span class="sd" style="background:${colOf(c)}"></span>${g[0]}</div><div class="chips">${g[1].map(s=>`<span class="chip">${s}</span>`).join('')}</div></div>`}).join('')}</div></div>`;
+
+  // background
+  document.getElementById('background').innerHTML=`<div class="wrap">
+    <div class="section-head reveal"><div class="eyebrow">${t.bg_eye}</div><h2 class="stitle">${t.bg_title}</h2></div>
+    <div class="bg-grid">
+      ${t.edu.map(e=>`<div class="edu-card reveal"><div class="edu-d">${e[0]}</div><div class="edu-i">${e[1]}</div><span class="edu-b" style="background:${colSoft(e[3])};color:${colOf(e[3])}">${e[2]}</span></div>`).join('')}
+      <div class="note reveal"><div class="note-l">${t.note_l}</div><div class="note-t">${t.note_t}</div></div>
+    </div></div>`;
+
+  // footer
+  document.getElementById('foot').innerHTML=`
+    <div class="foot-name reveal">${t.foot_name}</div>
+    <div class="foot-sub reveal">${t.foot_sub}</div>
+    <div class="foot-links reveal">
+      <a href="mailto:mrdesautu@gmail.com">${IC.mail}mrdesautu@gmail.com</a>
+      <a href="https://github.com/mrdesautu" target="_blank" rel="noopener">${IC.gh}GitHub</a>
+      <a href="https://www.linkedin.com/in/mrdesautu" target="_blank" rel="noopener">${IC.li}LinkedIn</a>
+      <a href="https://wa.me/34644875110" target="_blank" rel="noopener">${IC.wa}WhatsApp</a>
+      <a href="tel:+34644875110">${IC.ph}+34 644 875 110</a>
+      <a href="${t.cvfile}" download>${IC.dl}${t.cv}</a>
+    </div>
+    <div class="foot-bot"><span>${t.foot_bot}</span><span>Made with care · Madrid, Spain</span></div>`;
+
+  document.title=t.doctitle;
+  document.documentElement.lang=(t===D.es)?'es':'en';
+  observe(); wireMob();
+}
+
+/* reveal */
+let io;
+function observe(){
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('vs'));return;}
+  if(io)io.disconnect();
+  io=new IntersectionObserver((es)=>{es.forEach((e,i)=>{if(e.isIntersecting){e.target.style.transitionDelay=`${Math.min(i%6,5)*60}ms`;e.target.classList.add('vs');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // count-up
+  const cs=document.querySelectorAll('.n[data-c]');
+  const cio=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,raw=el.dataset.c,num=parseInt(raw),suf=raw.replace(/[0-9]/g,'');let s=null;const step=ts=>{if(!s)s=ts;const p=Math.min((ts-s)/1200,1),v=Math.round((1-Math.pow(1-p,3))*num);el.textContent=v+suf;if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step);cio.unobserve(el)})},{threshold:.6});
+  cs.forEach(c=>cio.observe(c));
+}
+function wireMob(){
+  const b=document.getElementById('burger'),m=document.getElementById('mob');
+  b.onclick=()=>{b.classList.toggle('open');m.classList.toggle('open')};
+  m.querySelectorAll('a').forEach(a=>a.onclick=()=>{b.classList.remove('open');m.classList.remove('open')});
+}
+
+/* lang */
+let lang='en';
+function switchLang(l){if(l===lang)return;lang=l;render(D[lang]);}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-l]');if(b)switchLang(b.dataset.l);});
+render(D.en);
+
+/* nav shadow + scrollspy */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{
+  nav.classList.toggle('sc',scrollY>20);
+  const secs=document.querySelectorAll('main section[id]');
+  let cur='';secs.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
+  document.querySelectorAll('#nav-links a').forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+</script>
+</body>
+</html>
