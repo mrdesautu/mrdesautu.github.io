@@ -3,355 +3,342 @@
 <head>
 <meta charset="UTF-8">
 <title>Martin Rodrigo Morales — CV 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-@page{size:A4;margin:1.15cm 1.5cm}
+@page{size:A4;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',system-ui,sans-serif;font-size:9pt;color:#1e293b;background:#e2e8f0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+:root{
+  --sb:5.95cm;
+  --panel:#0f172a;--accent:#38bdf8;--accent-ink:#0284c7;
+  --paper:#fff;--text:#1e293b;--muted:#64748b;--faint:#94a3b8;
+  --s-head:#f1f5f9;--s-text:#cbd5e1;--s-muted:#8b9bb4;
+}
+body{font-family:'Inter',system-ui,sans-serif;font-size:9pt;color:var(--text);background:#1e293b;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 a{color:inherit;text-decoration:none}
 
-.print-btn{position:fixed;top:16px;right:16px;padding:9px 20px;background:#0ea5e9;color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(14,165,233,.4);z-index:100}
-.print-btn:hover{background:#0284c7}
+.print-btn{position:fixed;top:16px;right:16px;padding:9px 20px;background:var(--accent);color:#0f172a;border:none;border-radius:8px;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(56,189,248,.4);z-index:100}
 @media print{.print-btn{display:none}}
 
-.wrap{max-width:21cm;margin:0 auto;padding:1.15cm 1.5cm;background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.12)}
-@media print{
-  body{background:#fff}
-  .wrap{padding:0;max-width:none;box-shadow:none;margin:0}
-}
+.sheet{position:relative;width:21cm;min-height:29.7cm;margin:0 auto;
+  display:grid;grid-template-columns:var(--sb) 1fr;
+  background:
+    radial-gradient(5cm 5cm at .4cm .4cm, rgba(56,189,248,.16), transparent 70%),
+    linear-gradient(90deg,
+      var(--panel) 0, var(--panel) calc(var(--sb) - 2px),
+      var(--accent) calc(var(--sb) - 2px), var(--accent) var(--sb),
+      var(--paper) var(--sb));
+  box-shadow:0 12px 48px rgba(0,0,0,.45)}
+@media print{body{background:#fff}.sheet{width:auto;min-height:0;box-shadow:none;margin:0}}
 
-/* ── Header ── */
-.hdr{border-bottom:2.5px solid #0ea5e9;padding-bottom:11px;margin-bottom:14px}
-.hdr-name{font-size:22pt;font-weight:800;color:#0f172a;letter-spacing:-.5px;line-height:1}
-.hdr-title{font-size:10pt;font-weight:600;color:#0ea5e9;margin-top:4px;letter-spacing:.1px}
-.hdr-degrees{font-size:8pt;color:#64748b;margin-top:3px}
-.hdr-contact{display:flex;flex-wrap:wrap;gap:7px 18px;margin-top:8px}
-.hdr-contact span{font-size:8pt;color:#475569}
+.main{grid-column:2;grid-row:1;padding:.95cm 1cm}
+.aside{grid-column:1;grid-row:1;padding:.95cm .68cm;color:var(--s-text)}
 
-/* ── Body grid ── */
-.body{display:grid;grid-template-columns:1fr 192px;gap:24px;align-items:start}
+.name{font-family:'Space Grotesk';font-weight:700;font-size:23pt;color:#0f172a;letter-spacing:-.6px;line-height:1.02}
+.role{font-family:'Space Grotesk';font-weight:500;font-size:10.5pt;color:var(--accent-ink);margin-top:3px}
+.degrees{font-size:8pt;color:var(--muted);margin-top:4px}
+.rule{height:2px;background:linear-gradient(90deg,var(--accent),transparent);margin:11px 0 13px;border-radius:2px}
 
-/* ── Sections ── */
 .sec{margin-bottom:12px}
-.sec-title{font-size:7.5pt;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#0ea5e9;border-bottom:1px solid #e2e8f0;padding-bottom:3px;margin-bottom:8px;break-after:avoid}
+.h{font-family:'Space Grotesk';font-weight:600;font-size:8.5pt;letter-spacing:2px;text-transform:uppercase;color:#0f172a;display:flex;align-items:center;gap:9px;margin-bottom:9px;break-after:avoid}
+.h::before{content:'';width:6px;height:6px;border-radius:2px;background:var(--accent-ink);flex:none}
+.h::after{content:'';flex:1;height:1px;background:#e2e8f0}
 
-.summary{font-size:8.5pt;color:#475569;line-height:1.55}
-.summary strong{color:#1e293b;font-weight:600}
+.sum{font-size:8.7pt;color:#475569;line-height:1.55}
+.sum strong{color:#0f172a;font-weight:600}
 
-/* ── Jobs / Projects ── */
 .job{margin-bottom:9px;break-inside:avoid}
 .job:last-child{margin-bottom:0}
-.job-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.job-title{font-size:9.5pt;font-weight:700;color:#0f172a}
-.job-period{font-size:7pt;color:#94a3b8;font-family:'JetBrains Mono',monospace;white-space:nowrap;flex-shrink:0}
-.job-co{font-size:8pt;color:#0ea5e9;font-style:italic;margin:2px 0 4px}
-.proj-stack{font-size:6.8pt;color:#0d9488;font-family:'JetBrains Mono',monospace;margin:2px 0 5px;line-height:1.5}
-.bul{list-style:none}
-.bul li{font-size:8pt;color:#475569;padding:1px 0 1px 12px;position:relative;line-height:1.45}
-.bul li::before{content:'▸';position:absolute;left:0;color:#0d9488;font-size:7pt;top:2px}
-.bul strong{color:#334155;font-weight:600}
+.job-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.job-t{font-family:'Space Grotesk';font-weight:600;font-size:10pt;color:#0f172a}
+.job-d{font-family:'JetBrains Mono';font-size:7pt;color:var(--faint);white-space:nowrap;flex:none}
+.job-c{font-size:8pt;color:var(--accent-ink);font-weight:500;margin:1px 0 4px}
+.stack{font-family:'JetBrains Mono';font-size:6.7pt;color:#0891b2;margin:2px 0 5px;line-height:1.55}
+ul.b{list-style:none}
+.b li{font-size:8pt;color:#475569;line-height:1.45;padding:1px 0 1px 13px;position:relative}
+.b li::before{content:'▸';position:absolute;left:0;top:1px;color:var(--accent-ink);font-size:7pt}
+.b strong{color:#334155;font-weight:600}
+.m{font-family:'JetBrains Mono';font-size:7pt;font-weight:500;color:#0369a1;background:#f0f9ff;border:1px solid #bae6fd;border-radius:4px;padding:0 4px;white-space:nowrap}
 
-/* ── Sidebar ── */
-.sidebar .sec{margin-bottom:11px;break-inside:avoid}
+.slist2{list-style:none}
+.slist2 li{font-size:8pt;color:#475569;line-height:1.45;padding:1px 0 1px 13px;position:relative}
+.slist2 li::before{content:'▪';position:absolute;left:0;top:1px;color:var(--accent-ink);font-size:7pt}
 
-.skill-group{margin-bottom:7px}
-.skill-label{font-size:7pt;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.7px;margin-bottom:4px}
-.tags{display:flex;flex-wrap:wrap;gap:3px}
-.tag{font-size:7pt;font-weight:500;padding:2px 7px;border-radius:4px;background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd;line-height:1.4}
-.tag.t{background:#f0fdfa;color:#0f766e;border-color:#99f6e4}
+.mono{width:50px;height:50px;border-radius:14px;border:1.5px solid rgba(56,189,248,.55);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:17pt;color:var(--accent);background:rgba(56,189,248,.10);margin-bottom:8px}
+.status{display:flex;align-items:center;gap:6px;font-size:7pt;color:var(--s-muted);margin-top:7px}
+.dot{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,.18);flex:none}
 
-.edu{margin-bottom:8px}
-.edu-deg{font-size:8.5pt;font-weight:700;color:#0f172a}
-.edu-inst{font-size:7.5pt;color:#475569;margin-top:1px}
-.edu-badge{display:inline-block;font-size:6.5pt;font-weight:600;padding:1px 7px;border-radius:4px;margin-top:3px;background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd}
+.a-sec{margin-bottom:11px;break-inside:avoid}
+.sh{font-family:'Space Grotesk';font-weight:600;font-size:7.5pt;letter-spacing:1.8px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.sh::after{content:'';flex:1;height:1px;background:rgba(148,163,184,.22)}
 
-.award{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:6px;padding:8px 10px}
-.award-lbl{font-size:7pt;font-weight:700;color:#b45309;text-transform:uppercase;letter-spacing:.7px}
-.award-ttl{font-size:8.5pt;font-weight:700;color:#92400e;margin-top:2px}
-.award-sub{font-size:7pt;color:#a16207;margin-top:2px}
+.contact{display:flex;flex-direction:column;gap:5px}
+.ci{display:flex;align-items:center;gap:8px;font-size:7.5pt;color:var(--s-text);word-break:break-all}
+.ico{width:12px;height:12px;color:var(--accent);flex:none}
+
+.skgrp{margin-bottom:7px}
+.sklbl{font-size:6.4pt;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--s-muted);margin-bottom:4px}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{font-size:6.7pt;font-weight:500;color:#cbd5e1;background:rgba(148,163,184,.12);border:1px solid rgba(148,163,184,.22);border-radius:4px;padding:2px 6px;line-height:1.4}
+.chip.a{color:#7dd3fc;background:rgba(56,189,248,.13);border-color:rgba(56,189,248,.32)}
 
 .lang{margin-bottom:6px}
-.lang-row{display:flex;justify-content:space-between;font-size:8pt;margin-bottom:2px}
-.lang-name{font-weight:600}
-.lang-lv{color:#94a3b8;font-size:7pt;font-family:'JetBrains Mono',monospace}
-.lang-bar{height:3px;background:#f1f5f9;border-radius:2px;overflow:hidden}
-.lang-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#0ea5e9,#0d9488)}
+.lang-r{display:flex;justify-content:space-between;font-size:7.6pt;color:var(--s-text);margin-bottom:3px}
+.lang-lv{font-family:'JetBrains Mono';font-size:6.6pt;color:var(--s-muted)}
+.bar{height:3px;background:rgba(148,163,184,.18);border-radius:2px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,var(--accent),#7dd3fc);border-radius:2px}
+
+.edu{margin-bottom:8px}
+.edu-d{font-family:'Space Grotesk';font-size:8pt;font-weight:600;color:var(--s-head);line-height:1.15}
+.edu-i{font-size:6.8pt;color:var(--s-muted);margin-top:2px}
+.edu-b{display:inline-block;font-size:6pt;font-weight:600;color:#7dd3fc;border:1px solid rgba(56,189,248,.32);border-radius:3px;padding:1px 6px;margin-top:3px}
+
+.note{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.26);border-left:2px solid #34d399;border-radius:6px;padding:8px 9px}
+.note-l{font-size:6.4pt;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#6ee7b7;margin-bottom:3px}
+.note-t{font-size:7pt;color:var(--s-text);line-height:1.5}
+
+.r{margin-bottom:6px}
+.r-l{font-family:'Space Grotesk';font-size:7.6pt;font-weight:600;color:var(--s-head)}
+.r-d{font-size:6.6pt;color:var(--s-muted);line-height:1.4;margin-top:1px}
 
 .slist{list-style:none}
-.slist li{font-size:7.5pt;color:#475569;padding:2px 0 2px 12px;position:relative;line-height:1.4}
-.slist li::before{content:'▪';position:absolute;left:0;color:#0ea5e9;font-size:7pt;top:2px}
+.slist li{font-size:7.2pt;color:var(--s-text);padding:2px 0 2px 12px;position:relative;line-height:1.35}
+.slist li::before{content:'▪';position:absolute;left:0;top:2px;color:var(--accent);font-size:6.5pt}
 
-.r-item{margin-bottom:6px}
-.r-lbl{font-size:8pt;font-weight:700;color:#0f172a}
-.r-desc{font-size:7pt;color:#475569;line-height:1.45;margin-top:1px}
-
-.clinical{background:#f0fdf4;border:1px solid #bbf7d0;border-left:3px solid #10b981;border-radius:6px;padding:8px 10px}
-.clinical-lbl{font-size:7pt;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:.7px;margin-bottom:3px}
-.clinical-txt{font-size:7.5pt;color:#064e3b;line-height:1.5}
+.award{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.26);border-left:2px solid var(--accent);border-radius:6px;padding:7px 9px}
+.award-l{font-size:6.3pt;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#7dd3fc}
+.award-t{font-family:'Space Grotesk';font-size:7.8pt;font-weight:700;color:var(--s-head);margin-top:2px}
+.award-s{font-size:6.5pt;color:var(--s-muted);margin-top:1px}
 </style>
 </head>
 <body>
-
 <button class="print-btn" onclick="window.print()">Save as PDF</button>
 
-<div class="wrap">
+<div class="sheet">
 
-  <!-- HEADER -->
-  <div class="hdr">
-    <div class="hdr-name">Martin Rodrigo Morales</div>
-    <div class="hdr-title">AI Technical Lead · MLOps Engineer · AI Systems Architect</div>
-    <div class="hdr-degrees">MSc Artificial Intelligence · Lic. en Psicología · B.Sc. Systems Engineering</div>
-    <div class="hdr-contact">
-      <span>✉ mrdesautu@gmail.com</span>
-      <span>📞 +34 644 875 110 · Spain</span>
-      <span>🔗 linkedin.com/in/mrdesautu</span>
-      <span>🐙 github.com/mrdesautu</span>
-      <span>🌐 mrdesautu.github.io</span>
+  <!-- ══════ MAIN (DOM-first for ATS) ══════ -->
+  <div class="main">
+
+    <div class="name">Martin Rodrigo Morales</div>
+    <div class="role">AI Technical Lead · MLOps Engineer · AI Systems Architect</div>
+    <div class="degrees">MSc Artificial Intelligence · Lic. en Psicología · B.Sc. Systems Engineering</div>
+    <div class="rule"></div>
+
+    <div class="sec">
+      <div class="h">Summary</div>
+      <p class="sum">AI Technical Lead &amp; MLOps Engineer with <strong>5+ years</strong> building production-grade LLM and agentic systems. Currently at <strong>Iatel</strong> leading a 4-person team on <strong>+OAA / NOA</strong>, an event-driven multi-agent platform running in production for a leading Spanish telecom operator, automating <strong>root-cause</strong> diagnosis of network failures. Co-founder and technical coordinator of <strong>Dualtherapist</strong> (clinical AI), approaching launch. <strong>Architect</strong> profile: agentic systems (MCP, A2A, BPM), RAG/GraphRAG, <strong>LLMOps</strong>, and end-to-end cloud architecture. Proven track record in <strong>Fortune 500</strong> environments (Accenture, BBVA/HP) and a unique position at the intersection of Systems Engineering and Clinical Psychology.</p>
     </div>
-  </div>
 
-  <div class="body">
+    <div class="sec">
+      <div class="h">Experience</div>
 
-    <!-- ══════ MAIN ══════ -->
-    <div class="main">
-
-      <div class="sec">
-        <div class="sec-title">Professional Summary</div>
-        <p class="summary">AI Technical Lead &amp; MLOps Engineer with <strong>5+ years</strong> building production-grade LLM and agentic systems. Currently at <strong>Iatel</strong> leading a 4-person team on <strong>+OAA / NOA</strong>, an event-driven multi-agent platform running in production for a leading Spanish telecom operator, automating <strong>root-cause</strong> diagnosis of network failures. Co-founder and technical coordinator of <strong>Dualtherapist</strong> (clinical AI), approaching launch. <strong>Architect</strong> profile: agentic system design (MCP, A2A, BPM), RAG/GraphRAG, <strong>LLMOps</strong> (in-house gateway + self-hosted model), and end-to-end cloud architecture. Proven track record in <strong>Fortune 500</strong> environments (Accenture, BBVA/HP) and a unique position at the intersection of Systems Engineering and Clinical Psychology.</p>
-      </div>
-
-      <div class="sec">
-        <div class="sec-title">Professional Experience</div>
-
-        <div class="job">
-          <div class="job-top"><div class="job-title">AI Technical Lead</div><div class="job-period">Apr 2026 – Present</div></div>
-          <div class="job-co">Iatel — Telecommunications / Enterprise AI · Spain</div>
-          <ul class="bul">
-            <li>Leading a 4-person team building <strong>+OAA / NOA</strong>, a production multi-agent platform that automates root-cause detection of network failures for a leading Spanish telecom operator.</li>
-            <li><strong>Event-driven microservices</strong> architecture: multi-channel ingestion (syslog, mail, SMS, Telegram) → <strong>Kafka (Avro) + Apache Flink</strong> → Elasticsearch, with agent orchestration via <strong>Flowable BPM (BPMN)</strong> and an agent HTTP bridge.</li>
-            <li>Designed the in-house <strong>LLMOps</strong> layer: <strong>LiteLLM + Langfuse</strong> gateway (governance, virtual keys, cost control and observability) and a self-hosted <strong>Qwen3-30B model on GKE</strong>, with a RAG vs. fine-tuning/distillation (RAFT) strategy.</li>
-            <li>LLM reasoning pipeline over live network telemetry for root-cause classification and an <strong>agentic chat with MCP</strong> and multi-step reasoning. Stack: Next.js/React 19 (Nx), FastAPI + Postgres, OpenTelemetry, Docker, Kubernetes + Helm.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-top"><div class="job-title">Independent AI Consultant &amp; Professor</div><div class="job-period">2025 – Present</div></div>
-          <div class="job-co">Northern International University / Self-employed</div>
-          <ul class="bul">
-            <li>Appointed professor at NIU delivering modules on AI-Assisted Psychometrics, Computational Psychopathology, and Conversational Therapeutic Systems.</li>
-            <li>Built scalable RAG pipelines for the health and education sectors integrating HuggingFace LLMs with Qdrant/ChromaDB vector stores.</li>
-            <li>Mentored 20+ students through the full NLP project lifecycle: LangChain architecture, FastAPI deployment, and production best practices.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-top"><div class="job-title">AI Engineer</div><div class="job-period">2024 – 2025</div></div>
-          <div class="job-co">Accenture — Client: HP (Fortune 500)</div>
-          <ul class="bul">
-            <li>Designed and deployed a RAG-based candidate evaluation system (MinHash near-dedup, perplexity filtering, domain rebalancing), improving <strong>NDCG@5 from 0.71 to 0.83</strong>.</li>
-            <li>Led MLOps strategy for HP supply-chain predictive models: PySpark pipelines, Docker + Databricks CI/CD.</li>
-            <li>Optimized Kubernetes cluster resource allocation and autoscaling, reducing cloud infrastructure costs.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-top"><div class="job-title">Lead Data Instructor &amp; Technical Mentor</div><div class="job-period">2023 – 2025</div></div>
-          <div class="job-co">Henry Bootcamp</div>
-          <ul class="bul">
-            <li>Led 10+ cohorts as Technical Lead &amp; Scrum Master through 45-day production-simulation sprints.</li>
-            <li>Co-designed cloud-native architectures (Docker, FastAPI, MLflow) deployed by graduates to real production environments.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-top"><div class="job-title">Big Data Engineer</div><div class="job-period">2023 – 2024</div></div>
-          <div class="job-co">Accenture — Client: BBVA (Banking)</div>
-          <ul class="bul">
-            <li>Orchestrated mission-critical ETL pipelines in a regulated banking environment using Hadoop, Spark on YARN, and GCP Dataproc.</li>
-            <li>Diagnosed and fixed dataloader starvation (repartition to 256 MB files + speculative execution), improving throughput ~<strong>2.5×</strong>; Data Quality &amp; Drift monitoring with Control-M.</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="sec">
-        <div class="sec-title">Selected Projects</div>
-
-        <div class="job">
-          <div class="job-top"><div class="job-title">Dualtherapist — Clinical AI Platform</div><div class="job-period">Co-founder &amp; Tech Coordinator</div></div>
-          <div class="proj-stack">Turbo monorepo · Next.js 15 · Expo/Solito · FastAPI · Gemini/Vertex AI · Neo4j · Firestore · Docker/K8s/Terraform</div>
-          <ul class="bul">
-            <li>Coordinating a 4-person team (frontend, backend, PM) building a digital therapy platform connecting psychologists and patients, approaching launch; responsible for technical architecture and agent system design.</li>
-            <li>End-to-end architecture: <strong>Next.js 15</strong> web (App Router/SSR) + <strong>Expo</strong> mobile app with universal components (Solito), a Node/Express API, and a Python/<strong>FastAPI ai-service</strong> for session transcription, <strong>embedding-similarity triage</strong>, and a <strong>RAG</strong> knowledge base powered by Gemini/Vertex AI.</li>
-            <li>Clinical knowledge graph in <strong>Neo4j</strong>; Firestore + Google Cloud Storage; Firebase Auth + JWT HttpOnly cookie with <strong>Redis</strong> blacklist; Docker / Kubernetes / Terraform infrastructure.</li>
-            <li>Designed the <strong>HITL</strong> evaluation and the domain-specific clinical safety layer, drawing on my training as a licensed psychologist.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-top"><div class="job-title">Multi-Agent Knowledge Graph Builder</div></div>
-          <div class="proj-stack">Google ADK 1.5 · LiteLLM · Neo4j · Python 3.11</div>
-          <ul class="bul">
-            <li>Orchestrated autonomous agents for entity extraction and Neo4j knowledge-graph construction from unstructured data.</li>
-            <li>Two-stage chunking (coarse semantic + fine structural) improved entity extraction by ~<strong>8 F1 points</strong>; full pipeline from document ingestion to graph queries.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-top"><div class="job-title">MetaAgent — Hybrid Memory AI System</div></div>
-          <div class="proj-stack">LangChain · FAISS + Qdrant · OpenAI API · Docker</div>
-          <ul class="bul">
-            <li>Persistent AI assistant with hybrid vector memory (FAISS + Qdrant), human-feedback scoring loops, and long-term context retention.</li>
-            <li>Containerized with Docker; session persistence with automated memory consolidation and a scalable deployment pipeline.</li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <div class="job-top"><div class="job-title">Production MLOps Pipeline — Sentiment Analysis</div></div>
-          <div class="proj-stack">DistilBERT · FastAPI · MLflow · HuggingFace Spaces · CI/CD</div>
-          <ul class="bul">
-            <li>Deployed a production DistilBERT model (80% accuracy) on HuggingFace Spaces with a Gradio UI and automated CI/CD for model versioning.</li>
-            <li>Training optimization (fp16 + gradient checkpointing: memory 38→22 GB, 4h→2.6h) and INT8 quantization with ONNX Runtime (500→130 MB, p99 CPU latency 280→95 ms).</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="sec">
-        <div class="sec-title">Previous Experience</div>
-        <div class="job">
-          <div class="job-top"><div class="job-title">Junior Data Scientist</div><div class="job-period">2021 – 2023</div></div>
-          <div class="job-co">CEA Solidario (NGO)</div>
-          <ul class="bul">
-            <li>Built AI-driven behavioral analysis tools for autism assistance, integrating early ML models for pattern recognition and behavioral insights.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="sec">
-        <div class="sec-title">Continuous Development</div>
-        <ul class="slist">
-          <li>AI techniques: Prompt Engineering, Fine-tuning, RAG, Transfer Learning — HuggingFace Agents Course.</li>
-          <li>React Native (Expo), advanced backend scalability, AWS serverless architecture (VPC, IaC).</li>
-          <li>Specialization in Cognitive Neuroscience — Neuro-Transmitiendo (2024).</li>
+      <div class="job">
+        <div class="job-h"><div class="job-t">AI Technical Lead</div><div class="job-d">APR 2026 — PRESENT</div></div>
+        <div class="job-c">Iatel · Telecommunications / Enterprise AI · Spain</div>
+        <ul class="b">
+          <li>Leading a 4-person team building <strong>+OAA / NOA</strong>, a production multi-agent platform that automates root-cause detection of network failures for a leading Spanish telecom operator.</li>
+          <li><strong>Event-driven microservices</strong> architecture: multi-channel ingestion (syslog, mail, SMS, Telegram) → <strong>Kafka (Avro) + Apache Flink</strong> → Elasticsearch, with agent orchestration via <strong>Flowable BPM (BPMN)</strong> and an agent HTTP bridge.</li>
+          <li>Designed the in-house <strong>LLMOps</strong> layer: <strong>LiteLLM + Langfuse</strong> gateway (governance, virtual keys, cost control and observability) and a self-hosted <strong>Qwen3-30B model on GKE</strong>, with a RAG vs. fine-tuning/distillation (RAFT) strategy.</li>
+          <li>LLM reasoning pipeline over live network telemetry for root-cause classification and an <strong>agentic chat with MCP</strong> and multi-step reasoning. Stack: Next.js/React 19 (Nx), FastAPI + Postgres, OpenTelemetry, Docker, Kubernetes + Helm.</li>
         </ul>
       </div>
 
-    </div><!-- /main -->
-
-    <!-- ══════ SIDEBAR ══════ -->
-    <div class="sidebar">
-
-      <div class="sec">
-        <div class="sec-title">Skills</div>
-        <div class="skill-group">
-          <div class="skill-label">LLM &amp; Agents</div>
-          <div class="tags"><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Google ADK</span><span class="tag">MCP</span><span class="tag">A2A</span><span class="tag">RAG/GraphRAG</span><span class="tag">LiteLLM</span><span class="tag">Langfuse</span><span class="tag">HuggingFace</span><span class="tag">Neo4j</span><span class="tag">Qdrant</span></div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-label">MLOps &amp; Infra</div>
-          <div class="tags"><span class="tag t">Docker</span><span class="tag t">Kubernetes</span><span class="tag t">Helm</span><span class="tag t">Terraform</span><span class="tag t">MLflow</span><span class="tag t">CI/CD</span><span class="tag t">FastAPI</span><span class="tag t">OpenTelemetry</span><span class="tag t">Redis</span></div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-label">Data &amp; Streaming</div>
-          <div class="tags"><span class="tag">Kafka</span><span class="tag">Apache Flink</span><span class="tag">Elasticsearch</span><span class="tag">Postgres</span><span class="tag">PySpark</span><span class="tag">Databricks</span><span class="tag">SQL</span></div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-label">Cloud</div>
-          <div class="tags"><span class="tag t">GCP Vertex AI</span><span class="tag t">Gemini</span><span class="tag t">Firebase</span><span class="tag t">AWS</span><span class="tag t">Azure ML</span></div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-label">Dev Stack</div>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Next.js</span><span class="tag">React Native</span><span class="tag">Expo/Solito</span><span class="tag">Turborepo</span><span class="tag">Nx</span><span class="tag">Git</span></div>
-        </div>
-      </div>
-
-      <div class="sec">
-        <div class="sec-title">Education</div>
-        <div class="edu">
-          <div class="edu-deg">MSc Artificial Intelligence</div>
-          <div class="edu-inst">Universidad Tecnológica Nacional</div>
-          <span class="edu-badge">AI &amp; ML</span>
-        </div>
-        <div class="edu">
-          <div class="edu-deg">B.Sc. Systems Engineering</div>
-          <div class="edu-inst">Universidad Tecnológica Nacional</div>
-          <span class="edu-badge">Engineering</span>
-        </div>
-        <div class="edu">
-          <div class="edu-deg">Lic. en Psicología</div>
-          <div class="edu-inst">Universidad de Mendoza — 2017</div>
-          <span class="edu-badge">🏅 Best Graduate</span>
-        </div>
-      </div>
-
-      <div class="sec">
-        <div class="sec-title">Certifications</div>
-        <ul class="slist">
-          <li>Microsoft Azure AI (AI-900)</li>
-          <li>IELTS C1</li>
-          <li>HuggingFace Agents Course</li>
-          <li>Cognitive Neuroscience (Neuro-Transmitiendo)</li>
+      <div class="job">
+        <div class="job-h"><div class="job-t">Independent AI Consultant &amp; Professor</div><div class="job-d">2025 — PRESENT</div></div>
+        <div class="job-c">Northern International University / Self-employed</div>
+        <ul class="b">
+          <li>Appointed professor at NIU delivering modules on AI-Assisted Psychometrics, Computational Psychopathology, and Conversational Therapeutic Systems.</li>
+          <li>Built scalable RAG pipelines for the health and education sectors integrating HuggingFace LLMs with Qdrant/ChromaDB vector stores.</li>
+          <li>Mentored 20+ students through the full NLP project lifecycle: LangChain architecture, FastAPI deployment, and production best practices.</li>
         </ul>
       </div>
 
-      <div class="sec">
-        <div class="sec-title">Languages</div>
-        <div class="lang">
-          <div class="lang-row"><span class="lang-name">English</span><span class="lang-lv">C1 — IELTS</span></div>
-          <div class="lang-bar"><div class="lang-fill" style="width:88%"></div></div>
-        </div>
-        <div class="lang">
-          <div class="lang-row"><span class="lang-name">Spanish</span><span class="lang-lv">Native</span></div>
-          <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
-        </div>
-        <div class="lang">
-          <div class="lang-row"><span class="lang-name">French</span><span class="lang-lv">A2</span></div>
-          <div class="lang-bar"><div class="lang-fill" style="width:30%"></div></div>
-        </div>
-      </div>
-
-      <div class="sec">
-        <div class="clinical">
-          <div class="clinical-lbl">Clinical Domain Expertise</div>
-          <div class="clinical-txt">Licensed Psychologist with 5+ years of clinical experience. Applies diagnostic precision to LLM evaluation (HITL), hallucination detection, and AI safety design for mental-health and therapeutic AI systems.</div>
-        </div>
-      </div>
-
-      <div class="sec">
-        <div class="sec-title">Research Background</div>
-        <div class="r-item"><div class="r-lbl">APOLA</div><div class="r-desc">Structural Psychoanalysis — International Forums.</div></div>
-        <div class="r-item"><div class="r-lbl">Topology</div><div class="r-desc">Set Theory, Logic &amp; Language formalization.</div></div>
-        <div class="r-item"><div class="r-lbl">KG Theory</div><div class="r-desc">Topological structures informing Knowledge Graph design.</div></div>
-        <div class="r-item"><div class="r-lbl">Speaker</div><div class="r-desc">Research papers at international conferences.</div></div>
-      </div>
-
-      <div class="sec">
-        <div class="sec-title">Domain Focus</div>
-        <div class="tags"><span class="tag">Mental Health AI</span><span class="tag">Clinical NLP</span><span class="tag">AI Alignment</span><span class="tag">HITL Evaluation</span><span class="tag">HealthTech</span><span class="tag">EdTech</span><span class="tag">FinTech</span><span class="tag">Telco / Networks</span></div>
-      </div>
-
-      <div class="sec">
-        <div class="sec-title">Leadership &amp; Soft Skills</div>
-        <ul class="slist">
-          <li>Technical Lead &amp; Scrum Master</li>
-          <li>Cross-domain thinking: Tech × Clinical</li>
-          <li>Fast learner — top academic track record</li>
-          <li>Mentorship &amp; knowledge transfer</li>
+      <div class="job">
+        <div class="job-h"><div class="job-t">AI Engineer</div><div class="job-d">2024 — 2025</div></div>
+        <div class="job-c">Accenture · Client: HP (Fortune 500)</div>
+        <ul class="b">
+          <li>Designed and deployed a RAG-based candidate evaluation system (MinHash near-dedup, perplexity filtering, domain rebalancing), improving <span class="m">NDCG@5 0.71→0.83</span>.</li>
+          <li>Led MLOps strategy for HP supply-chain predictive models: PySpark pipelines, Docker + Databricks CI/CD.</li>
+          <li>Optimized Kubernetes cluster resource allocation and autoscaling, reducing cloud infrastructure costs.</li>
         </ul>
       </div>
 
-      <div class="sec">
-        <div class="award">
-          <div class="award-lbl">🏅 Academic Excellence</div>
-          <div class="award-ttl">Gold Medal — Best Graduate</div>
-          <div class="award-sub">Universidad de Mendoza, 2017</div>
-        </div>
+      <div class="job">
+        <div class="job-h"><div class="job-t">Lead Data Instructor &amp; Technical Mentor</div><div class="job-d">2023 — 2025</div></div>
+        <div class="job-c">Henry Bootcamp</div>
+        <ul class="b">
+          <li>Led 10+ cohorts as Technical Lead &amp; Scrum Master through 45-day production-simulation sprints.</li>
+          <li>Co-designed cloud-native architectures (Docker, FastAPI, MLflow) deployed by graduates to real production environments.</li>
+        </ul>
       </div>
 
-    </div><!-- /sidebar -->
-  </div><!-- /body -->
+      <div class="job">
+        <div class="job-h"><div class="job-t">Big Data Engineer</div><div class="job-d">2023 — 2024</div></div>
+        <div class="job-c">Accenture · Client: BBVA (Banking)</div>
+        <ul class="b">
+          <li>Orchestrated mission-critical ETL pipelines in a regulated banking environment using Hadoop, Spark on YARN, and GCP Dataproc.</li>
+          <li>Fixed dataloader starvation (repartition to 256 MB files + speculative execution), improving throughput <span class="m">~2.5×</span>; Data Quality &amp; Drift monitoring with Control-M.</li>
+        </ul>
+      </div>
 
-</div><!-- /wrap -->
+    </div>
+
+    <div class="sec">
+      <div class="h">Selected Projects</div>
+
+      <div class="job">
+        <div class="job-h"><div class="job-t">Dualtherapist — Clinical AI Platform</div><div class="job-d">CO-FOUNDER</div></div>
+        <div class="stack">Turbo · Next.js 15 · Expo/Solito · FastAPI · Gemini/Vertex AI · Neo4j · Firestore · Docker/K8s/Terraform</div>
+        <ul class="b">
+          <li>Coordinating a 4-person team (frontend, backend, PM) building a digital therapy platform connecting psychologists and patients, approaching launch; responsible for technical architecture and agent system design.</li>
+          <li>End-to-end architecture: <strong>Next.js 15</strong> web (App Router/SSR) + <strong>Expo</strong> mobile app with universal components (Solito), a Node/Express API, and a Python/<strong>FastAPI ai-service</strong> for session transcription, <strong>embedding-similarity triage</strong>, and a <strong>RAG</strong> knowledge base powered by Gemini/Vertex AI.</li>
+          <li>Clinical knowledge graph in <strong>Neo4j</strong>; Firestore + Google Cloud Storage; Firebase Auth + JWT HttpOnly cookie with <strong>Redis</strong> blacklist; Docker / Kubernetes / Terraform infrastructure.</li>
+          <li>Designed the <strong>HITL</strong> evaluation and the domain-specific clinical safety layer, drawing on my training as a licensed psychologist.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-h"><div class="job-t">Multi-Agent Knowledge Graph Builder</div></div>
+        <div class="stack">Google ADK 1.5 · LiteLLM · Neo4j · Python 3.11</div>
+        <ul class="b">
+          <li>Orchestrated autonomous agents for entity extraction and Neo4j knowledge-graph construction from unstructured data.</li>
+          <li>Two-stage chunking (coarse semantic + fine structural) improved entity extraction <span class="m">+8 F1</span>; full pipeline from document ingestion to graph queries.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-h"><div class="job-t">MetaAgent — Hybrid Memory AI System</div></div>
+        <div class="stack">LangChain · FAISS + Qdrant · OpenAI API · Docker</div>
+        <ul class="b">
+          <li>Persistent AI assistant with hybrid vector memory (FAISS + Qdrant), human-feedback scoring loops, and long-term context retention.</li>
+          <li>Containerized with Docker; session persistence with automated memory consolidation and a scalable deployment pipeline.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-h"><div class="job-t">Production MLOps Pipeline — Sentiment Analysis</div></div>
+        <div class="stack">DistilBERT · FastAPI · MLflow · HuggingFace Spaces · CI/CD</div>
+        <ul class="b">
+          <li>Deployed a production DistilBERT model (80% accuracy) on HuggingFace Spaces with a Gradio UI and automated CI/CD for model versioning.</li>
+          <li>Training optimization (fp16 + gradient checkpointing, <span class="m">38→22 GB</span>) and INT8 quantization with ONNX Runtime (<span class="m">p99 280→95 ms</span>).</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="sec">
+      <div class="h">Previous Experience</div>
+      <div class="job">
+        <div class="job-h"><div class="job-t">Junior Data Scientist</div><div class="job-d">2021 — 2023</div></div>
+        <div class="job-c">CEA Solidario (NGO)</div>
+        <ul class="b">
+          <li>Built AI-driven behavioral analysis tools for autism assistance, integrating early ML models for pattern recognition and behavioral insights.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="h">Continuous Development</div>
+      <ul class="slist2">
+        <li>AI techniques: Prompt Engineering, Fine-tuning, RAG, Transfer Learning — HuggingFace Agents Course.</li>
+        <li>React Native (Expo), advanced backend scalability, AWS serverless architecture (VPC, IaC).</li>
+        <li>Specialization in Cognitive Neuroscience — Neuro-Transmitiendo (2024).</li>
+      </ul>
+    </div>
+
+  </div><!-- /main -->
+
+  <!-- ══════ SIDEBAR ══════ -->
+  <div class="aside">
+
+    <div class="mono">MM</div>
+    <div class="status"><span class="dot"></span> Remote · Hybrid · Spain</div>
+
+    <div class="a-sec" style="margin-top:12px">
+      <div class="sh">Contact</div>
+      <div class="contact">
+        <div class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>mrdesautu@gmail.com</div>
+        <div class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A18 18 0 013 6a2 2 0 012-2z"/></svg>+34 644 875 110</div>
+        <div class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4"/></svg>linkedin.com/in/mrdesautu</div>
+        <div class="ci"><svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.3 9.3 0 015 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.81c0 .27.18.6.69.49A10.02 10.02 0 0022 12.25C22 6.58 17.52 2 12 2z"/></svg>github.com/mrdesautu</div>
+        <div class="ci"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>mrdesautu.github.io</div>
+      </div>
+    </div>
+
+    <div class="a-sec">
+      <div class="sh">Skills</div>
+      <div class="skgrp">
+        <div class="sklbl">LLM &amp; Agents</div>
+        <div class="chips"><span class="chip a">MCP</span><span class="chip a">A2A</span><span class="chip a">RAG/GraphRAG</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">Google ADK</span><span class="chip">LiteLLM</span><span class="chip">Langfuse</span><span class="chip a">Neo4j</span><span class="chip">HuggingFace</span><span class="chip">Qdrant</span></div>
+      </div>
+      <div class="skgrp">
+        <div class="sklbl">MLOps &amp; Infra</div>
+        <div class="chips"><span class="chip">Docker</span><span class="chip a">Kubernetes</span><span class="chip">Helm</span><span class="chip">Terraform</span><span class="chip">MLflow</span><span class="chip">CI/CD</span><span class="chip">FastAPI</span><span class="chip">OpenTelemetry</span><span class="chip">Redis</span></div>
+      </div>
+      <div class="skgrp">
+        <div class="sklbl">Data &amp; Streaming</div>
+        <div class="chips"><span class="chip a">Kafka</span><span class="chip a">Apache Flink</span><span class="chip">Elasticsearch</span><span class="chip">Postgres</span><span class="chip">PySpark</span><span class="chip">Databricks</span><span class="chip">SQL</span></div>
+      </div>
+      <div class="skgrp">
+        <div class="sklbl">Cloud</div>
+        <div class="chips"><span class="chip">GCP Vertex AI</span><span class="chip">Gemini</span><span class="chip">Firebase</span><span class="chip">AWS</span><span class="chip">Azure ML</span></div>
+      </div>
+      <div class="skgrp">
+        <div class="sklbl">Dev Stack</div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Next.js</span><span class="chip">React Native</span><span class="chip">Expo/Solito</span><span class="chip">Turborepo</span><span class="chip">Nx</span><span class="chip">Git</span></div>
+      </div>
+    </div>
+
+    <div class="a-sec">
+      <div class="sh">Languages</div>
+      <div class="lang"><div class="lang-r"><span>English</span><span class="lang-lv">C1 · IELTS</span></div><div class="bar"><div class="fill" style="width:88%"></div></div></div>
+      <div class="lang"><div class="lang-r"><span>Spanish</span><span class="lang-lv">Native</span></div><div class="bar"><div class="fill" style="width:100%"></div></div></div>
+      <div class="lang"><div class="lang-r"><span>French</span><span class="lang-lv">A2</span></div><div class="bar"><div class="fill" style="width:30%"></div></div></div>
+    </div>
+
+    <div class="a-sec">
+      <div class="sh">Education</div>
+      <div class="edu"><div class="edu-d">MSc Artificial Intelligence</div><div class="edu-i">Universidad Tecnológica Nacional</div></div>
+      <div class="edu"><div class="edu-d">B.Sc. Systems Engineering</div><div class="edu-i">Universidad Tecnológica Nacional</div></div>
+      <div class="edu"><div class="edu-d">Lic. en Psicología</div><div class="edu-i">Universidad de Mendoza · 2017</div><span class="edu-b">🏅 Best Graduate</span></div>
+    </div>
+
+    <div class="a-sec">
+      <div class="note">
+        <div class="note-l">Clinical Expertise</div>
+        <div class="note-t">Licensed Psychologist (5+ years). Diagnostic precision applied to LLM evaluation (HITL), hallucination detection, and AI safety design for mental-health systems.</div>
+      </div>
+    </div>
+
+    <div class="a-sec">
+      <div class="sh">Research</div>
+      <div class="r"><div class="r-l">APOLA</div><div class="r-d">Structural Psychoanalysis — International Forums.</div></div>
+      <div class="r"><div class="r-l">Topology</div><div class="r-d">Set Theory, Logic &amp; Language formalization.</div></div>
+      <div class="r"><div class="r-l">KG Theory</div><div class="r-d">Topological structures informing Knowledge Graph design.</div></div>
+    </div>
+
+    <div class="a-sec">
+      <div class="sh">Domain Focus</div>
+      <div class="chips"><span class="chip">Mental Health AI</span><span class="chip">Clinical NLP</span><span class="chip">AI Alignment</span><span class="chip">HITL</span><span class="chip">HealthTech</span><span class="chip">FinTech</span><span class="chip">Telco / Networks</span></div>
+    </div>
+
+    <div class="a-sec">
+      <div class="sh">Leadership</div>
+      <ul class="slist">
+        <li>Technical Lead &amp; Scrum Master</li>
+        <li>Cross-domain thinking: Tech × Clinical</li>
+        <li>Mentorship &amp; knowledge transfer</li>
+      </ul>
+    </div>
+
+    <div class="a-sec">
+      <div class="award">
+        <div class="award-l">🏅 Academic Excellence</div>
+        <div class="award-t">Gold Medal — Best Graduate</div>
+        <div class="award-s">Universidad de Mendoza, 2017</div>
+      </div>
+    </div>
+
+  </div><!-- /aside -->
+</div><!-- /sheet -->
 </body>
 </html>
