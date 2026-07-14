@@ -5,70 +5,71 @@
 <title>Martin Rodrigo Morales — CV 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-@page{size:A4;margin:1.3cm 1.6cm}
+@page{size:A4;margin:1.15cm 1.5cm}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',system-ui,sans-serif;font-size:9.2pt;color:#1e293b;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:'Inter',system-ui,sans-serif;font-size:9pt;color:#1e293b;background:#e2e8f0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 a{color:inherit;text-decoration:none}
 
-/* Print button (screen only) */
 .print-btn{position:fixed;top:16px;right:16px;padding:9px 20px;background:#0ea5e9;color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(14,165,233,.4);z-index:100}
 .print-btn:hover{background:#0284c7}
 @media print{.print-btn{display:none}}
 
-.page{max-width:21cm;margin:0 auto;padding:1.3cm 1.6cm}
-@media print{.page{padding:0;max-width:none}}
+.wrap{max-width:21cm;margin:0 auto;padding:1.15cm 1.5cm;background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.12)}
+@media print{
+  body{background:#fff}
+  .wrap{padding:0;max-width:none;box-shadow:none;margin:0}
+}
 
 /* ── Header ── */
-.hdr{border-bottom:2.5px solid #0ea5e9;padding-bottom:13px;margin-bottom:16px}
+.hdr{border-bottom:2.5px solid #0ea5e9;padding-bottom:11px;margin-bottom:14px}
 .hdr-name{font-size:22pt;font-weight:800;color:#0f172a;letter-spacing:-.5px;line-height:1}
-.hdr-title{font-size:10pt;font-weight:500;color:#0ea5e9;margin-top:4px;letter-spacing:.1px}
-.hdr-contact{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:9px}
+.hdr-title{font-size:10pt;font-weight:600;color:#0ea5e9;margin-top:4px;letter-spacing:.1px}
+.hdr-degrees{font-size:8pt;color:#64748b;margin-top:3px}
+.hdr-contact{display:flex;flex-wrap:wrap;gap:7px 18px;margin-top:8px}
 .hdr-contact span{font-size:8pt;color:#475569}
 
 /* ── Body grid ── */
-.body{display:grid;grid-template-columns:1fr 190px;gap:26px}
+.body{display:grid;grid-template-columns:1fr 192px;gap:24px;align-items:start}
 
 /* ── Sections ── */
-.sec{margin-bottom:15px}
-.sec-title{font-size:7.5pt;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#0ea5e9;border-bottom:1px solid #e2e8f0;padding-bottom:3px;margin-bottom:9px}
+.sec{margin-bottom:12px}
+.sec-title{font-size:7.5pt;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#0ea5e9;border-bottom:1px solid #e2e8f0;padding-bottom:3px;margin-bottom:8px;break-after:avoid}
 
-/* ── Summary ── */
-.summary{font-size:8.5pt;color:#475569;line-height:1.65}
+.summary{font-size:8.5pt;color:#475569;line-height:1.55}
 .summary strong{color:#1e293b;font-weight:600}
 
-/* ── Jobs ── */
-.job{margin-bottom:11px}
+/* ── Jobs / Projects ── */
+.job{margin-bottom:9px;break-inside:avoid}
 .job:last-child{margin-bottom:0}
 .job-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .job-title{font-size:9.5pt;font-weight:700;color:#0f172a}
 .job-period{font-size:7pt;color:#94a3b8;font-family:'JetBrains Mono',monospace;white-space:nowrap;flex-shrink:0}
-.job-co{font-size:8pt;color:#0ea5e9;font-style:italic;margin:2px 0 5px}
+.job-co{font-size:8pt;color:#0ea5e9;font-style:italic;margin:2px 0 4px}
+.proj-stack{font-size:6.8pt;color:#0d9488;font-family:'JetBrains Mono',monospace;margin:2px 0 5px;line-height:1.5}
 .bul{list-style:none}
-.bul li{font-size:8pt;color:#475569;padding:1.5px 0 1.5px 12px;position:relative;line-height:1.55}
-.bul li::before{content:'▸';position:absolute;left:0;color:#0d9488;font-size:7pt;top:3px}
+.bul li{font-size:8pt;color:#475569;padding:1px 0 1px 12px;position:relative;line-height:1.45}
+.bul li::before{content:'▸';position:absolute;left:0;color:#0d9488;font-size:7pt;top:2px}
+.bul strong{color:#334155;font-weight:600}
 
 /* ── Sidebar ── */
-.sidebar .sec{margin-bottom:12px}
+.sidebar .sec{margin-bottom:11px;break-inside:avoid}
 
-/* Skills */
 .skill-group{margin-bottom:7px}
 .skill-label{font-size:7pt;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.7px;margin-bottom:4px}
 .tags{display:flex;flex-wrap:wrap;gap:3px}
 .tag{font-size:7pt;font-weight:500;padding:2px 7px;border-radius:4px;background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd;line-height:1.4}
+.tag.t{background:#f0fdfa;color:#0f766e;border-color:#99f6e4}
 
-/* Education */
 .edu{margin-bottom:8px}
 .edu-deg{font-size:8.5pt;font-weight:700;color:#0f172a}
 .edu-inst{font-size:7.5pt;color:#475569;margin-top:1px}
 .edu-badge{display:inline-block;font-size:6.5pt;font-weight:600;padding:1px 7px;border-radius:4px;margin-top:3px;background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd}
 
-/* Award */
 .award{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:6px;padding:8px 10px}
 .award-lbl{font-size:7pt;font-weight:700;color:#b45309;text-transform:uppercase;letter-spacing:.7px}
 .award-ttl{font-size:8.5pt;font-weight:700;color:#92400e;margin-top:2px}
 .award-sub{font-size:7pt;color:#a16207;margin-top:2px}
 
-/* Languages */
 .lang{margin-bottom:6px}
 .lang-row{display:flex;justify-content:space-between;font-size:8pt;margin-bottom:2px}
 .lang-name{font-weight:600}
@@ -76,22 +77,30 @@ a{color:inherit;text-decoration:none}
 .lang-bar{height:3px;background:#f1f5f9;border-radius:2px;overflow:hidden}
 .lang-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#0ea5e9,#0d9488)}
 
-/* Clinical note */
+.slist{list-style:none}
+.slist li{font-size:7.5pt;color:#475569;padding:2px 0 2px 12px;position:relative;line-height:1.4}
+.slist li::before{content:'▪';position:absolute;left:0;color:#0ea5e9;font-size:7pt;top:2px}
+
+.r-item{margin-bottom:6px}
+.r-lbl{font-size:8pt;font-weight:700;color:#0f172a}
+.r-desc{font-size:7pt;color:#475569;line-height:1.45;margin-top:1px}
+
 .clinical{background:#f0fdf4;border:1px solid #bbf7d0;border-left:3px solid #10b981;border-radius:6px;padding:8px 10px}
 .clinical-lbl{font-size:7pt;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:.7px;margin-bottom:3px}
-.clinical-txt{font-size:7.5pt;color:#064e3b;line-height:1.55}
+.clinical-txt{font-size:7.5pt;color:#064e3b;line-height:1.5}
 </style>
 </head>
 <body>
 
 <button class="print-btn" onclick="window.print()">Guardar como PDF</button>
 
-<div class="page">
+<div class="wrap">
 
   <!-- HEADER -->
   <div class="hdr">
     <div class="hdr-name">Martin Rodrigo Morales</div>
-    <div class="hdr-title">Technical Lead de IA · Ingeniero MLOps · Ing. en Sistemas de Información</div>
+    <div class="hdr-title">Technical Lead de IA · Ingeniero MLOps · Arquitecto de Sistemas de IA</div>
+    <div class="hdr-degrees">MSc en Inteligencia Artificial · Lic. en Psicología · Ing. en Sistemas de Información</div>
     <div class="hdr-contact">
       <span>✉ mrdesautu@gmail.com</span>
       <span>📞 +34 644 875 110 · España</span>
@@ -101,19 +110,16 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
 
-  <!-- BODY -->
   <div class="body">
 
-    <!-- MAIN -->
-    <div>
+    <!-- ══════ MAIN ══════ -->
+    <div class="main">
 
-      <!-- PERFIL -->
       <div class="sec">
         <div class="sec-title">Perfil Profesional</div>
-        <p class="summary">Technical Lead de IA e Ingeniero MLOps con <strong>más de 5 años</strong> construyendo sistemas LLM y agénticos en producción. Liderando una plataforma multiagente para diagnóstico en telecomunicaciones en <strong>Iatel</strong> (España) y cofundando <strong>Dualtherapist</strong>, próximo al lanzamiento con un equipo de 4 personas. Posicionado de forma única en la intersección de <strong>Ingeniería en Sistemas</strong> y <strong>Psicología Clínica</strong>, con experiencia probada a escala Fortune 500 (Accenture, BBVA/HP). Enfocado en <strong>liderazgo de productos de IA</strong> y <strong>arquitectura de sistemas agénticos</strong>.</p>
+        <p class="summary">Technical Lead de IA e Ingeniero MLOps con <strong>más de 5 años</strong> construyendo sistemas LLM y agénticos en producción. Actualmente en <strong>Iatel</strong> lidero un equipo de 4 personas sobre <strong>+OAA / NOA</strong>, una plataforma multiagente orientada a eventos, en producción para un operador de telecomunicaciones líder en España, que automatiza el diagnóstico de <strong>causa raíz</strong> de fallos de red. Cofundador y coordinador técnico de <strong>Dualtherapist</strong> (IA clínica), próxima al lanzamiento. Perfil de <strong>arquitecto</strong>: diseño de sistemas agénticos (MCP, A2A, BPM), RAG/GraphRAG, <strong>LLMOps</strong> (gateway propio + modelo self-hosted) y arquitectura cloud de extremo a extremo. Trayectoria a escala <strong>Fortune 500</strong> (Accenture, BBVA/HP) y una posición única en la intersección de la Ingeniería en Sistemas y la Psicología Clínica.</p>
       </div>
 
-      <!-- EXPERIENCIA -->
       <div class="sec">
         <div class="sec-title">Experiencia Profesional</div>
 
@@ -121,9 +127,10 @@ a{color:inherit;text-decoration:none}
           <div class="job-top"><div class="job-title">Technical Lead de IA</div><div class="job-period">Abr 2026 – Presente</div></div>
           <div class="job-co">Iatel — Telecomunicaciones / IA Empresarial · España</div>
           <ul class="bul">
-            <li>Liderando un equipo de 4 personas construyendo un sistema de IA multiagente para detección automatizada de causa raíz de fallas de red en grandes infraestructuras de telecomunicaciones empresariales en España.</li>
-            <li>Diseñando arquitectura cloud de extremo a extremo integrando componentes de IA, orquestación de agentes y pipelines de datos en tiempo real para entornos de red complejos.</li>
-            <li>Supervisando decisiones técnicas, planificación de sprints y entrega de una plataforma agéntica de nivel productivo que combina razonamiento LLM con diagnósticos de red estructurados.</li>
+            <li>Lidero un equipo de 4 personas en el desarrollo de <strong>+OAA / NOA</strong>, una plataforma multiagente en producción que automatiza la detección de causa raíz de fallos de red para un operador de telecomunicaciones líder en España.</li>
+            <li>Arquitectura de <strong>microservicios orientada a eventos</strong>: ingesta multicanal (syslog, correo, SMS, Telegram) → <strong>Kafka (Avro) + Apache Flink</strong> → Elasticsearch, con orquestación de agentes mediante <strong>Flowable BPM (BPMN)</strong> y un puente HTTP de agentes.</li>
+            <li>Diseñé la capa <strong>LLMOps</strong> propia: gateway <strong>LiteLLM + Langfuse</strong> (gobernanza, claves virtuales, control de coste y observabilidad) y modelo <strong>Qwen3-30B self-hosted en GKE</strong>, con estrategia de RAG frente a fine-tuning/destilación (RAFT).</li>
+            <li>Pipeline de razonamiento LLM sobre telemetría de red en vivo para clasificación de causa raíz y <strong>chat agéntico con MCP</strong> y razonamiento multi-paso. Stack: Next.js/React 19 (Nx), FastAPI + Postgres, OpenTelemetry, Docker, Kubernetes + Helm.</li>
           </ul>
         </div>
 
@@ -133,7 +140,7 @@ a{color:inherit;text-decoration:none}
           <ul class="bul">
             <li>Designado profesor dictando módulos sobre Psicometría Asistida por IA, Psicopatología Computacional y Sistemas Terapéuticos Conversacionales.</li>
             <li>Construí pipelines RAG escalables para salud y educación integrando LLMs de HuggingFace con almacenes vectoriales Qdrant/ChromaDB.</li>
-            <li>Mentoré a más de 20 estudiantes en el ciclo completo de proyectos NLP: arquitectura, despliegue con FastAPI y mejores prácticas de producción.</li>
+            <li>Mentoré a más de 20 estudiantes en el ciclo completo de proyectos NLP: arquitectura con LangChain, despliegue con FastAPI y mejores prácticas de producción.</li>
           </ul>
         </div>
 
@@ -141,9 +148,9 @@ a{color:inherit;text-decoration:none}
           <div class="job-top"><div class="job-title">Ingeniero de IA</div><div class="job-period">2024 – 2025</div></div>
           <div class="job-co">Accenture — Cliente: HP (Fortune 500)</div>
           <ul class="bul">
-            <li>Diseñé y desplegué sistemas de evaluación de candidatos basados en RAG, mejorando significativamente la automatización y precisión de las evaluaciones.</li>
+            <li>Diseñé y desplegué un sistema de evaluación de candidatos basado en RAG (deduplicación near-dup con MinHash, filtrado por perplejidad y rebalanceo de dominios), mejorando el <strong>NDCG@5 de 0,71 a 0,83</strong>.</li>
             <li>Lideré la estrategia MLOps para modelos predictivos de cadena de suministro de HP: pipelines PySpark, Docker + CI/CD en Databricks.</li>
-            <li>Optimicé la asignación de recursos y autoescalado del clúster Kubernetes, reduciendo costos de infraestructura cloud.</li>
+            <li>Optimicé la asignación de recursos y el autoescalado del clúster Kubernetes, reduciendo costos de infraestructura cloud.</li>
           </ul>
         </div>
 
@@ -160,11 +167,58 @@ a{color:inherit;text-decoration:none}
           <div class="job-top"><div class="job-title">Ingeniero de Big Data</div><div class="job-period">2023 – 2024</div></div>
           <div class="job-co">Accenture — Cliente: BBVA (Banca)</div>
           <ul class="bul">
-            <li>Orquesté pipelines ETL de misión crítica en entorno bancario regulado usando Hadoop, Spark on YARN, GCP Dataproc.</li>
-            <li>Implementé monitoreo de Calidad de Datos y Drift de nivel empresarial con Control-M para planificación de alta disponibilidad.</li>
+            <li>Orquesté pipelines ETL de misión crítica en entorno bancario regulado usando Hadoop, Spark on YARN y GCP Dataproc.</li>
+            <li>Diagnostiqué y resolví inanición del dataloader (repartición a ficheros de 256 MB + ejecución especulativa), mejorando el throughput ~<strong>2,5×</strong>; monitoreo de Calidad de Datos y Drift con Control-M.</li>
           </ul>
         </div>
 
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Proyectos Destacados</div>
+
+        <div class="job">
+          <div class="job-top"><div class="job-title">Dualtherapist — Plataforma de IA Clínica</div><div class="job-period">Cofundador &amp; Coord. Técnico</div></div>
+          <div class="proj-stack">Monorepo Turbo · Next.js 15 · Expo/Solito · FastAPI · Gemini/Vertex AI · Neo4j · Firestore · Docker/K8s/Terraform</div>
+          <ul class="bul">
+            <li>Coordino un equipo de 4 (frontend, backend, PM) construyendo una plataforma de terapia digital asistida por IA que conecta psicólogos y pacientes, próxima al lanzamiento; responsable de la arquitectura técnica y del diseño del sistema de agentes.</li>
+            <li>Arquitectura E2E: web <strong>Next.js 15</strong> (App Router/SSR) + app móvil <strong>Expo</strong> con componentes universales (Solito), API Node/Express y un <strong>ai-service Python/FastAPI</strong> para transcripción de sesiones, <strong>triaje por similitud de embeddings</strong> y base de conocimiento <strong>RAG</strong> con Gemini/Vertex AI.</li>
+            <li>Grafo de conocimiento clínico en <strong>Neo4j</strong>; Firestore + Google Cloud Storage; autenticación Firebase + JWT en cookie HttpOnly con blacklist en <strong>Redis</strong>; infraestructura Docker / Kubernetes / Terraform.</li>
+            <li>Diseño de la evaluación <strong>HITL</strong> y de la capa de seguridad clínica específica de dominio, apoyándome en mi formación como psicólogo habilitado.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top"><div class="job-title">Multi-Agent Knowledge Graph Builder</div></div>
+          <div class="proj-stack">Google ADK 1.5 · LiteLLM · Neo4j · Python 3.11</div>
+          <ul class="bul">
+            <li>Orquesté agentes autónomos para extracción de entidades y construcción de un grafo de conocimiento en Neo4j a partir de datos no estructurados.</li>
+            <li>El chunking en dos etapas (semántico grueso + estructural fino) mejoró la extracción de entidades en ~<strong>8 puntos de F1</strong>; pipeline completo desde ingesta hasta consultas al grafo.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top"><div class="job-title">MetaAgent — Sistema de IA con Memoria Híbrida</div></div>
+          <div class="proj-stack">LangChain · FAISS + Qdrant · OpenAI API · Docker</div>
+          <ul class="bul">
+            <li>Asistente de IA persistente con memoria vectorial híbrida (FAISS + Qdrant), bucles de feedback humano y retención de contexto a largo plazo.</li>
+            <li>Contenerizado con Docker; persistencia de sesión con consolidación automática de memoria y pipeline de despliegue escalable.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-top"><div class="job-title">Production MLOps Pipeline — Análisis de Sentimiento</div></div>
+          <div class="proj-stack">DistilBERT · FastAPI · MLflow · HuggingFace Spaces · CI/CD</div>
+          <ul class="bul">
+            <li>Desplegué un modelo DistilBERT en producción (80% de precisión) en HuggingFace Spaces con UI Gradio y CI/CD automatizado para versionado de modelos.</li>
+            <li>Optimización de entrenamiento (fp16 + gradient checkpointing: memoria 38→22 GB, 4h→2,6h) y cuantización INT8 con ONNX Runtime (500→130 MB, latencia p99 en CPU 280→95 ms).</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Experiencia Previa</div>
         <div class="job">
           <div class="job-top"><div class="job-title">Científico de Datos Junior</div><div class="job-period">2021 – 2023</div></div>
           <div class="job-co">CEA Solidario (ONG)</div>
@@ -172,31 +226,43 @@ a{color:inherit;text-decoration:none}
             <li>Construí herramientas de análisis conductual impulsadas por IA para asistencia en autismo, integrando modelos ML para reconocimiento de patrones.</li>
           </ul>
         </div>
+      </div>
 
+      <div class="sec">
+        <div class="sec-title">Formación Continua</div>
+        <ul class="slist">
+          <li>Técnicas de IA: Prompt Engineering, Fine-tuning, RAG, Transfer Learning — HuggingFace Agents Course.</li>
+          <li>React Native (Expo), escalabilidad avanzada de backend, arquitectura serverless en AWS (VPC, IaC).</li>
+          <li>Especialización en Neurociencia Cognitiva — Neuro-Transmitiendo (2024).</li>
+        </ul>
       </div>
 
     </div><!-- /main -->
 
-    <!-- SIDEBAR -->
+    <!-- ══════ SIDEBAR ══════ -->
     <div class="sidebar">
 
       <div class="sec">
         <div class="sec-title">Habilidades</div>
         <div class="skill-group">
           <div class="skill-label">LLM &amp; Agentes</div>
-          <div class="tags"><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">OpenAI API</span><span class="tag">Google ADK</span><span class="tag">A2A Protocol</span><span class="tag">MCP</span><span class="tag">RAG/GraphRAG</span><span class="tag">HuggingFace</span><span class="tag">Qdrant</span><span class="tag">FAISS</span></div>
+          <div class="tags"><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Google ADK</span><span class="tag">MCP</span><span class="tag">A2A</span><span class="tag">RAG/GraphRAG</span><span class="tag">LiteLLM</span><span class="tag">Langfuse</span><span class="tag">HuggingFace</span><span class="tag">Neo4j</span><span class="tag">Qdrant</span></div>
         </div>
         <div class="skill-group">
           <div class="skill-label">MLOps e Infra</div>
-          <div class="tags"><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">MLflow</span><span class="tag">CI/CD</span><span class="tag">FastAPI</span><span class="tag">gRPC</span><span class="tag">Databricks</span><span class="tag">Airflow</span></div>
+          <div class="tags"><span class="tag t">Docker</span><span class="tag t">Kubernetes</span><span class="tag t">Helm</span><span class="tag t">Terraform</span><span class="tag t">MLflow</span><span class="tag t">CI/CD</span><span class="tag t">FastAPI</span><span class="tag t">OpenTelemetry</span><span class="tag t">Redis</span></div>
         </div>
         <div class="skill-group">
-          <div class="skill-label">Cloud &amp; Datos</div>
-          <div class="tags"><span class="tag">GCP Vertex AI</span><span class="tag">Firebase</span><span class="tag">AWS SageMaker</span><span class="tag">Azure ML</span><span class="tag">PySpark</span><span class="tag">SQL</span></div>
+          <div class="skill-label">Datos &amp; Streaming</div>
+          <div class="tags"><span class="tag">Kafka</span><span class="tag">Apache Flink</span><span class="tag">Elasticsearch</span><span class="tag">Postgres</span><span class="tag">PySpark</span><span class="tag">Databricks</span><span class="tag">SQL</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Cloud</div>
+          <div class="tags"><span class="tag t">GCP Vertex AI</span><span class="tag t">Gemini</span><span class="tag t">Firebase</span><span class="tag t">AWS</span><span class="tag t">Azure ML</span></div>
         </div>
         <div class="skill-group">
           <div class="skill-label">Stack de desarrollo</div>
-          <div class="tags"><span class="tag">Python</span><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Streamlit</span><span class="tag">n8n</span><span class="tag">Git</span></div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Next.js</span><span class="tag">React Native</span><span class="tag">Expo/Solito</span><span class="tag">Turborepo</span><span class="tag">Nx</span><span class="tag">Git</span></div>
         </div>
       </div>
 
@@ -220,11 +286,13 @@ a{color:inherit;text-decoration:none}
       </div>
 
       <div class="sec">
-        <div class="award">
-          <div class="award-lbl">🏅 Excelencia Académica</div>
-          <div class="award-ttl">Medalla de Oro — Mejor Egresado</div>
-          <div class="award-sub">Universidad de Mendoza, 2017</div>
-        </div>
+        <div class="sec-title">Certificaciones</div>
+        <ul class="slist">
+          <li>Microsoft Azure AI (AI-900)</li>
+          <li>IELTS C1</li>
+          <li>HuggingFace Agents Course</li>
+          <li>Neurociencia Cognitiva (Neuro-Transmitiendo)</li>
+        </ul>
       </div>
 
       <div class="sec">
@@ -246,13 +314,44 @@ a{color:inherit;text-decoration:none}
       <div class="sec">
         <div class="clinical">
           <div class="clinical-lbl">Expertise Clínico</div>
-          <div class="clinical-txt">Psicólogo habilitado con 5+ años de experiencia. Evaluación HITL de precisión, detección de alucinaciones y diseño de seguridad en IA para aplicaciones terapéuticas. Investigador en Psicoanálisis Estructural (APOLA).</div>
+          <div class="clinical-txt">Psicólogo habilitado con 5+ años de experiencia clínica. Aplico precisión diagnóstica a la evaluación de LLMs (HITL), detección de alucinaciones y diseño de seguridad de IA para aplicaciones de salud mental y terapéuticas.</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Investigación</div>
+        <div class="r-item"><div class="r-lbl">APOLA</div><div class="r-desc">Psicoanálisis Estructural — Foros Internacionales.</div></div>
+        <div class="r-item"><div class="r-lbl">Topología</div><div class="r-desc">Teoría de Conjuntos, Lógica y formalización del Lenguaje.</div></div>
+        <div class="r-item"><div class="r-lbl">Teoría de Grafos</div><div class="r-desc">Estructuras topológicas aplicadas al diseño de Knowledge Graphs.</div></div>
+        <div class="r-item"><div class="r-lbl">Ponente</div><div class="r-desc">Papers de investigación en conferencias internacionales.</div></div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Áreas de Dominio</div>
+        <div class="tags"><span class="tag">IA en Salud Mental</span><span class="tag">Clinical NLP</span><span class="tag">AI Alignment</span><span class="tag">Evaluación HITL</span><span class="tag">HealthTech</span><span class="tag">EdTech</span><span class="tag">FinTech</span><span class="tag">Telco / Redes</span></div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Liderazgo &amp; Soft Skills</div>
+        <ul class="slist">
+          <li>Technical Lead &amp; Scrum Master</li>
+          <li>Pensamiento transversal: Tech × Clínica</li>
+          <li>Aprendizaje rápido — trayectoria académica de excelencia</li>
+          <li>Mentoría y transferencia de conocimiento</li>
+        </ul>
+      </div>
+
+      <div class="sec">
+        <div class="award">
+          <div class="award-lbl">🏅 Excelencia Académica</div>
+          <div class="award-ttl">Medalla de Oro — Mejor Egresado</div>
+          <div class="award-sub">Universidad de Mendoza, 2017</div>
         </div>
       </div>
 
     </div><!-- /sidebar -->
   </div><!-- /body -->
 
-</div><!-- /page -->
+</div><!-- /wrap -->
 </body>
 </html>
